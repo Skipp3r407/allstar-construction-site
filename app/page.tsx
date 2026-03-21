@@ -11,11 +11,12 @@ import { company, coreServices, serviceAreas, testimonials } from "@/lib/site-da
 export const metadata: Metadata = {
   title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
   description:
-    "Premium custom concrete, masonry, pavers, pergolas, decks, fences, and retaining walls for homeowners across Central Florida. Request a free quote today.",
+    "Led by 26+ years of construction expertise and established for 12 years in Central Florida, All-Star Custom Construction LLC delivers premium concrete, masonry, pavers, pergolas, decks, fences, and retaining walls.",
 };
 
 const trustPoints = [
-  "12+ years of hands-on construction experience",
+  "Backed by 26+ years of hands-on construction experience",
+  "Established 12 years ago and proudly serving Central Florida",
   "Quality craftsmanship with clean finishes",
   "Custom project planning for your property",
   "Reliable scheduling and communication",
@@ -64,46 +65,49 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.3),_transparent_40%)]" />
         <div className="animate-float-slow absolute right-8 top-20 hidden h-28 w-28 rounded-full bg-[#d4a017]/20 blur-2xl md:block" />
         <div className="container-main relative">
-          <p className="animate-fade-up text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
-            Serving Central Florida Homeowners
-          </p>
-          <h1
-            className="animate-fade-up mt-4 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
-            style={{ animationDelay: "90ms" }}
-          >
-            Custom Outdoor Construction in Central Florida
-          </h1>
-          <p className="animate-fade-up mt-5 max-w-2xl text-lg text-gray-200" style={{ animationDelay: "170ms" }}>
-            With {company.yearsExperience} in construction, All-Star Custom Construction LLC
-            delivers concrete, masonry, and outdoor living builds that combine durability with
-            premium curb appeal.
-          </p>
-          <div className="animate-fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "250ms" }}>
-            <Link href="/contact" className="btn-primary">
-              Request a Free Quote
-            </Link>
-            <a href={company.phoneLink} className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
-              Call Now
-            </a>
-          </div>
-          <div className="animate-fade-up mt-10 grid max-w-4xl gap-4 sm:grid-cols-3" style={{ animationDelay: "320ms" }}>
-            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-              <p className="text-sm font-semibold">{company.yearsExperience} Experience</p>
+          <div className="max-w-3xl">
+            <p className="animate-fade-up text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
+              Serving Central Florida Homeowners
+            </p>
+            <h1
+              className="animate-fade-up mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+              style={{ animationDelay: "90ms" }}
+            >
+              Custom Outdoor Construction in Central Florida
+            </h1>
+            <p className="animate-fade-up mt-5 max-w-2xl text-lg text-gray-200" style={{ animationDelay: "170ms" }}>
+              Backed by {company.ownerExperience} of industry expertise and established for{" "}
+              {company.yearsEstablished} in Central Florida, All-Star Custom Construction LLC
+              delivers concrete, masonry, and outdoor living builds that combine durability with
+              premium curb appeal.
+            </p>
+            <div className="animate-fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "250ms" }}>
+              <Link href="/contact" className="btn-primary">
+                Request a Free Quote
+              </Link>
+              <a href={company.phoneLink} className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
+                Call Now
+              </a>
             </div>
-            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-              <p className="text-sm font-semibold">Custom Design-Driven Builds</p>
+            <div className="animate-fade-up mt-10 grid gap-4 sm:grid-cols-3" style={{ animationDelay: "320ms" }}>
+              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+                <p className="text-sm font-semibold">{company.ownerExperience} Experience</p>
+              </div>
+              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+                <p className="text-sm font-semibold">{company.yearsEstablished} in Business</p>
+              </div>
+              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+                <p className="text-sm font-semibold">Quality Workmanship Guarantee</p>
+              </div>
             </div>
-            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-              <p className="text-sm font-semibold">Quality Workmanship Guarantee</p>
-            </div>
-          </div>
-          <div className="mt-10">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-300">
-              Scroll
-              <span className="flex h-7 w-4 items-start justify-center rounded-full border border-gray-300 p-1">
-                <span className="scroll-dot block h-1.5 w-1.5 rounded-full bg-[#d4a017]" />
+            <div className="mt-10">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-300">
+                Scroll
+                <span className="flex h-7 w-4 items-start justify-center rounded-full border border-gray-300 p-1">
+                  <span className="scroll-dot block h-1.5 w-1.5 rounded-full bg-[#d4a017]" />
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </section>

@@ -4,7 +4,8 @@ export const company = {
   phoneLink: "tel:+13213156014",
   email: "allstarconstruction85@gmail.com",
   location: "Orlando / Central Florida",
-  yearsExperience: "12+ years",
+  ownerExperience: "26+ years",
+  yearsEstablished: "12 years",
   trustLine: "Built for Central Florida homeowners",
 };
 

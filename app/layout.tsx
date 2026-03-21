@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.allstarcustomconstruction.com"),
   title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
   description:
-    "All-Star Custom Construction LLC delivers premium concrete, masonry, pavers, pergolas, fire pits, decks, fences, and retaining walls for homeowners across Central Florida.",
+    "All-Star Custom Construction LLC is led by 26+ years of construction experience and proudly established for 12 years in Central Florida, delivering premium concrete, masonry, pavers, pergolas, fire pits, decks, fences, and retaining walls.",
   alternates: {
     canonical: "/",
   },
@@ -42,7 +42,7 @@ export default function RootLayout({
               email: company.email,
               areaServed: "Central Florida",
               description:
-                "Custom concrete, masonry, and outdoor living construction for Central Florida homeowners.",
+                "Custom concrete, masonry, and outdoor living construction for Central Florida homeowners, backed by 26+ years of hands-on experience and 12 years in business.",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "FL",

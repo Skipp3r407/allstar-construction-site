@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="bg-[#111827] text-gray-200">
       <div className="container-main section-pad pb-10">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
           <div>
             <Image
               src="/images/logo.png"

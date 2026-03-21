@@ -27,22 +27,19 @@ export function Header() {
       }`}
     >
       <div className="container-main">
-        <div className="flex min-h-[8rem] items-center justify-between gap-4 py-2 sm:min-h-[10rem] lg:min-h-[14rem]">
-          <Link href="/" className="group flex items-center gap-3">
+        <div className="flex min-h-[5rem] items-center justify-between gap-4 py-2 sm:min-h-[5.5rem] lg:min-h-[6rem] lg:py-3">
+          <Link href="/" className="group shrink-0">
             <Image
               src="/images/logo.png"
               alt="All-Star Custom Construction LLC"
-              width={600}
-              height={240}
+              width={360}
+              height={144}
               priority
-              className="h-28 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-32 lg:h-56"
+              className="h-14 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-16 lg:h-20"
             />
-            <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7280] 2xl:block">
-              Central Florida Contractor
-            </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-7 lg:flex">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -65,7 +62,7 @@ export function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
             <a
               href={company.phoneLink}
               className="rounded-md border border-[#1f2937] px-3 py-2 text-sm font-semibold text-[#1f2937] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6] hover:shadow-sm"

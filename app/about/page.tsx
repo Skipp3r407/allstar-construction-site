@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
+import { company } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About | All-Star Custom Construction LLC",
   description:
-    "Learn about All-Star Custom Construction LLC, a trusted Central Florida contractor focused on custom concrete, masonry, and outdoor living projects.",
+    "Learn how All-Star Custom Construction LLC is built on 26+ years of industry experience and proudly established for 12 years serving homeowners across Central Florida.",
 };
 
 const builds = [
@@ -31,7 +32,7 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Who We Are"
               title="A Hands-On Construction Team Focused on Lasting Results"
-              description="Our company was built around one simple standard: do quality work the right way. We bring a skilled, detail-driven approach to every project, whether it is a new concrete slab or a full backyard transformation."
+              description={`All-Star Custom Construction LLC was established ${company.yearsEstablished} ago, built on a foundation of ${company.ownerExperience} of hands-on industry experience. We bring a skilled, detail-driven approach to every project, whether it is a new concrete slab or a full backyard transformation.`}
             />
             <p className="mt-4 text-[#4b5563]">
               Homeowners trust us because we communicate clearly, show up prepared, and deliver
