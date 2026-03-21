@@ -13,17 +13,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
       <div className="container-main">
-        <div className="flex h-20 items-center justify-between gap-4">
+        <div className="flex min-h-[5.5rem] items-center justify-between gap-4 py-2 sm:min-h-[6.5rem] lg:min-h-[7.5rem]">
           <Link href="/" className="group flex items-center gap-3">
             <Image
               src="/images/logo.png"
               alt="All-Star Custom Construction LLC"
-              width={180}
-              height={80}
+              width={300}
+              height={120}
               priority
-              className="h-10 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-12"
+              className="h-14 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-16 lg:h-28"
             />
-            <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7280] xl:block">
+            <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7280] 2xl:block">
               Central Florida Contractor
             </span>
           </Link>
