@@ -1,65 +1,251 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { CtaBanner } from "@/components/cta-banner";
+import { GalleryGrid } from "@/components/gallery-grid";
+import { SectionHeading } from "@/components/section-heading";
+import { ServiceCard } from "@/components/service-card";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { company, coreServices, serviceAreas, testimonials } from "@/lib/site-data";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
+  description:
+    "Premium custom concrete, masonry, pavers, pergolas, decks, fences, and retaining walls for homeowners across Central Florida. Request a free quote today.",
+};
+
+const trustPoints = [
+  "12+ years of hands-on construction experience",
+  "Quality craftsmanship with clean finishes",
+  "Custom project planning for your property",
+  "Reliable scheduling and communication",
+  "Custom builds designed for beauty and function",
+  "Attention to detail from prep to final walkthrough",
+  "Local expertise across Orlando and Central Florida neighborhoods",
+];
+
+const featuredProjects = [
+  {
+    title: "Custom Paver Patio Installation",
+    category: "Pavers",
+    caption: "Patterned paver patio designed for outdoor hosting and Florida weather.",
+  },
+  {
+    title: "Backyard Pergola Build",
+    category: "Pergolas",
+    caption: "Custom pergola framing that creates shade and architectural presence.",
+  },
+  {
+    title: "Decorative Fire Pit Area",
+    category: "Fire Pits",
+    caption: "Warm, functional gathering space integrated with hardscape details.",
+  },
+  {
+    title: "Concrete Sidewalk Project",
+    category: "Sidewalks",
+    caption: "Clean path upgrade improving safety, access, and curb appeal.",
+  },
+  {
+    title: "Retaining Wall Upgrade",
+    category: "Retaining Walls",
+    caption: "Durable wall system built to stabilize grade and refine yard structure.",
+  },
+  {
+    title: "Privacy Fence Installation",
+    category: "Fences",
+    caption: "Boundary-focused fence install with durable materials and a clean finish.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="relative overflow-hidden bg-[#111827] py-20 text-white sm:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.3),_transparent_40%)]" />
+        <div className="container-main relative">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
+            Serving Central Florida Homeowners
           </p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+            Custom Outdoor Construction in Central Florida
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg text-gray-200">
+            With {company.yearsExperience} in construction, All-Star Custom Construction LLC
+            delivers concrete, masonry, and outdoor living builds that combine durability with
+            premium curb appeal.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/contact" className="btn-primary">
+              Request a Free Quote
+            </Link>
+            <a href={company.phoneLink} className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
+              Call Now
+            </a>
+          </div>
+          <div className="mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+              <p className="text-sm font-semibold">{company.yearsExperience} Experience</p>
+            </div>
+            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+              <p className="text-sm font-semibold">Custom Design-Driven Builds</p>
+            </div>
+            <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
+              <p className="text-sm font-semibold">Quality Workmanship Guarantee</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      <section className="section-pad">
+        <div className="container-main">
+          <SectionHeading
+            eyebrow="Our Services"
+            title="Concrete, Masonry, and Outdoor Living Solutions"
+            description="From strong foundations to polished outdoor entertainment spaces, we deliver custom construction work designed for beauty and function."
+            centered
+          />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {coreServices.map((service) => (
+              <ServiceCard key={service.title} title={service.title} summary={service.summary} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white section-pad">
+        <div className="container-main">
+          <SectionHeading
+            eyebrow="Why Homeowners Choose Us"
+            title="Trusted Craftsmanship With a Local Reputation"
+            description="We bring a contractor mindset that values precision, transparency, and long-term durability on every project."
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {trustPoints.map((point) => (
+              <div key={point} className="card-premium">
+                <p className="font-semibold text-[#1f2937]">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad">
+        <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="About All-Star"
+              title="Custom Exterior Improvements Backed by Real Craftsmanship"
+              description="All-Star Custom Construction LLC helps Central Florida homeowners transform underused yards and outdated hardscapes into high-value outdoor spaces. We combine practical planning with skilled installation so your project not only looks great, but lasts."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Link href="/about" className="btn-secondary mt-6">
+              Learn More About Our Company
+            </Link>
+          </div>
+          <div className="rounded-2xl bg-gradient-to-br from-[#1f2937] to-[#111827] p-8 text-white shadow-xl">
+            <h3 className="text-2xl font-bold">Built to Handle Florida Conditions</h3>
+            <p className="mt-4 text-gray-200">
+              Heat, rain, and heavy use demand smart material choices and proper installation.
+              That is why our team focuses on preparation, drainage, structural integrity, and
+              finishing details.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm text-gray-100">
+              <li>• Site-specific recommendations, not one-size-fits-all solutions</li>
+              <li>• Clean job sites and respectful project management</li>
+              <li>• Honest timelines with clear communication from start to finish</li>
+            </ul>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="bg-white section-pad">
+        <div className="container-main">
+          <SectionHeading
+            eyebrow="Featured Projects"
+            title="Craftsmanship You Can See"
+            description="See the quality of our work across Orlando and surrounding Central Florida communities."
+          />
+          <div className="mt-10">
+            <GalleryGrid items={featuredProjects} />
+          </div>
+          <Link href="/gallery" className="btn-secondary mt-8">
+            View Full Gallery
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-pad">
+        <div className="container-main">
+          <SectionHeading
+            eyebrow="Client Reviews"
+            title="What Homeowners Say About Working With Our Team"
+            description="Local feedback from homeowners who trusted us with custom outdoor improvement projects."
+          />
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {testimonials.slice(0, 3).map((item) => (
+              <TestimonialCard key={item.name} name={item.name} city={item.city} quote={item.quote} />
+            ))}
+          </div>
+          <Link href="/testimonials" className="btn-secondary mt-8">
+            Read More Testimonials
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-white section-pad">
+        <div className="container-main grid gap-10 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              eyebrow="Service Areas"
+              title="Proudly Serving Communities Across Central Florida"
+              description="We regularly complete projects in Orlando, Kissimmee, Sanford, Winter Park, Altamonte Springs, Clermont, Oviedo, Apopka, Lakeland, and Davenport."
+            />
+            <p className="mt-4 text-[#4b5563]">
+              Do not see your city listed? Reach out anyway. We may still be able to schedule your
+              project based on scope and location.
+            </p>
+            <Link href="/service-areas" className="btn-secondary mt-6">
+              Explore Service Areas
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {serviceAreas.map((city) => (
+              <div key={city} className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-[#1f2937] shadow-sm">
+                {city}, FL
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner />
+
+      <section className="section-pad pt-0">
+        <div className="container-main">
+          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+            <SectionHeading
+              eyebrow="Contact"
+              title="Start Your Project With a Clear, No-Pressure Estimate"
+              description="Call us directly or send project details through our quote request form. We are ready to help you plan the right approach for your property."
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <a href={company.phoneLink} className="card-premium">
+                <p className="text-xs uppercase tracking-[0.12em] text-[#6b7280]">Phone</p>
+                <p className="mt-2 text-lg font-bold text-[#111827]">{company.phone}</p>
+              </a>
+              <a href={`mailto:${company.email}`} className="card-premium">
+                <p className="text-xs uppercase tracking-[0.12em] text-[#6b7280]">Email</p>
+                <p className="mt-2 text-lg font-bold text-[#111827]">{company.email}</p>
+              </a>
+              <div className="card-premium">
+                <p className="text-xs uppercase tracking-[0.12em] text-[#6b7280]">Area</p>
+                <p className="mt-2 text-lg font-bold text-[#111827]">{company.location}</p>
+              </div>
+            </div>
+            <Link href="/contact" className="btn-primary mt-6">
+              Request a Free Quote
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,0 +1,74 @@
+import Link from "next/link";
+import { company, coreServices, navLinks } from "@/lib/site-data";
+
+export function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-[#111827] text-gray-200">
+      <div className="container-main section-pad pb-10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="text-lg font-bold text-white">{company.name}</h3>
+            <p className="mt-3 text-sm text-gray-300">
+              Trusted custom concrete, masonry, and outdoor living construction across Central
+              Florida. Durable craftsmanship with clean, professional results.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-[#d4a017]">{company.trustLine}</p>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-gray-300">
+              Quick Links
+            </h4>
+            <ul className="mt-3 space-y-2 text-sm">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-[#d4a017]">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-gray-300">
+              Services
+            </h4>
+            <ul className="mt-3 space-y-2 text-sm">
+              {coreServices.slice(0, 6).map((service) => (
+                <li key={service.title}>{service.title}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-gray-300">
+              Contact
+            </h4>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>Serving homeowners in Central Florida</li>
+              <li>
+                <a href={company.phoneLink} className="hover:text-[#d4a017]">
+                  {company.phone}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${company.email}`} className="hover:text-[#d4a017]">
+                  {company.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-gray-800">
+        <div className="container-main flex flex-col gap-2 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} {company.name}. All rights reserved.</p>
+          <p>{company.trustLine}</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
