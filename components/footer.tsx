@@ -13,9 +13,9 @@ export function Footer() {
             <Image
               src="/images/logo.png"
               alt="All-Star Custom Construction LLC"
-              width={110}
-              height={50}
-              className="h-9 w-auto object-contain opacity-90 sm:h-10"
+              width={130}
+              height={60}
+              className="h-10 w-auto object-contain opacity-90 sm:h-11"
             />
             <h3 className="mt-3 text-lg font-bold text-white">{company.name}</h3>
             <p className="mt-3 text-sm text-gray-300">

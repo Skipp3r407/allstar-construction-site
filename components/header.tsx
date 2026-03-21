@@ -27,15 +27,15 @@ export function Header() {
       }`}
     >
       <div className="container-main">
-        <div className="flex min-h-[5.5rem] items-center justify-between gap-4 py-2 sm:min-h-[6.5rem] lg:min-h-[7.5rem]">
+        <div className="flex min-h-[8rem] items-center justify-between gap-4 py-2 sm:min-h-[10rem] lg:min-h-[14rem]">
           <Link href="/" className="group flex items-center gap-3">
             <Image
               src="/images/logo.png"
               alt="All-Star Custom Construction LLC"
-              width={300}
-              height={120}
+              width={600}
+              height={240}
               priority
-              className="h-14 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-16 lg:h-28"
+              className="h-28 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-32 lg:h-56"
             />
             <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7280] 2xl:block">
               Central Florida Contractor
