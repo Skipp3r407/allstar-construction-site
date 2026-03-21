@@ -76,10 +76,15 @@ export default function HomePage() {
               Custom Outdoor Construction in Central Florida
             </h1>
             <p className="animate-fade-up mt-5 max-w-2xl text-lg text-gray-200" style={{ animationDelay: "170ms" }}>
-              Backed by {company.ownerExperience} of industry expertise and established for{" "}
-              {company.yearsEstablished} in Central Florida, All-Star Custom Construction LLC
-              delivers concrete, masonry, and outdoor living builds that combine durability with
-              premium curb appeal.
+              Backed by {company.ownerExperience} of industry expertise, All-Star Custom
+              Construction LLC delivers concrete, masonry, and outdoor living builds that combine
+              durability with premium curb appeal.
+            </p>
+            <p
+              className="animate-fade-up mt-4 text-xl font-semibold uppercase tracking-[0.12em] text-[#d4a017] sm:text-2xl"
+              style={{ animationDelay: "220ms" }}
+            >
+              12+ Years Serving Central Florida
             </p>
             <div className="animate-fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "250ms" }}>
               <Link href="/contact" className="btn-primary">
