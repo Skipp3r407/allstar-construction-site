@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -13,12 +14,17 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
       <div className="container-main">
         <div className="flex h-20 items-center justify-between gap-4">
-          <Link href="/" className="group">
-            <span className="block text-xs font-semibold uppercase tracking-[0.2em] text-[#6b7280]">
+          <Link href="/" className="group flex items-center gap-3">
+            <Image
+              src="/images/logo.png"
+              alt="All-Star Custom Construction LLC"
+              width={180}
+              height={80}
+              priority
+              className="h-10 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-12"
+            />
+            <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-[#6b7280] xl:block">
               Central Florida Contractor
-            </span>
-            <span className="block text-base font-extrabold tracking-tight text-[#111827] transition group-hover:text-[#d4a017] sm:text-lg">
-              All-Star Custom Construction LLC
             </span>
           </Link>
 

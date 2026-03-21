@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { company, coreServices, navLinks } from "@/lib/site-data";
 
@@ -9,7 +10,14 @@ export function Footer() {
       <div className="container-main section-pad pb-10">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-bold text-white">{company.name}</h3>
+            <Image
+              src="/images/logo.png"
+              alt="All-Star Custom Construction LLC"
+              width={110}
+              height={50}
+              className="h-9 w-auto object-contain opacity-90 sm:h-10"
+            />
+            <h3 className="mt-3 text-lg font-bold text-white">{company.name}</h3>
             <p className="mt-3 text-sm text-gray-300">
               Trusted custom concrete, masonry, and outdoor living construction across Central
               Florida. Durable craftsmanship with clean, professional results.
