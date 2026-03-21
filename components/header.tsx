@@ -27,15 +27,15 @@ export function Header() {
       }`}
     >
       <div className="container-main">
-        <div className="flex min-h-[5rem] items-center justify-between gap-4 py-2 sm:min-h-[5.5rem] lg:min-h-[6rem] lg:py-3">
+        <div className="flex min-h-[8rem] items-center justify-between gap-4 py-2 sm:min-h-[9rem] lg:min-h-[11rem] lg:py-3">
           <Link href="/" className="group shrink-0">
             <Image
               src="/images/logo.png"
               alt="All-Star Custom Construction LLC"
-              width={360}
-              height={144}
+              width={720}
+              height={288}
               priority
-              className="h-14 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-16 lg:h-20"
+              className="h-28 w-auto object-contain transition duration-300 group-hover:opacity-90 sm:h-32 lg:h-40"
             />
           </Link>
 
