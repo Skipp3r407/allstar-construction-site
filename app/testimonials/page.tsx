@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { testimonials } from "@/lib/site-data";
@@ -19,6 +20,7 @@ export default function TestimonialsPage() {
         description="Real feedback from clients who trusted us with custom outdoor construction and masonry projects."
       />
 
+      <Reveal>
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading
@@ -33,8 +35,11 @@ export default function TestimonialsPage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
-      <CtaBanner title="Ready to Be Our Next Success Story?" subtitle="Call now or request a free quote for your concrete, masonry, or outdoor living project." />
+      <Reveal>
+        <CtaBanner title="Ready to Be Our Next Success Story?" subtitle="Call now or request a free quote for your concrete, masonry, or outdoor living project." />
+      </Reveal>
     </>
   );
 }

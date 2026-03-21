@@ -58,11 +58,11 @@ export function GalleryGrid({
         </div>
       ) : null}
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div key={activeCategory} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 animate-fade-up">
         {filteredItems.map((item) => (
           <article
             key={`${item.title}-${item.category}`}
-            className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
             <button
               type="button"
@@ -76,7 +76,10 @@ export function GalleryGrid({
                 aria-label={`${item.title} - ${item.category} project placeholder image`}
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.35),_transparent_45%)]" />
-                <div className="absolute inset-0 transition duration-300 group-hover:scale-105 group-hover:bg-black/10" />
+                <div className="absolute inset-0 transition duration-300 group-hover:scale-105 group-hover:bg-black/15" />
+                <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-gradient-to-t from-black/55 to-transparent p-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-sm font-semibold text-white">{item.title}</p>
+                </div>
                 <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#111827]">
                   {item.category}
                 </span>
@@ -92,11 +95,11 @@ export function GalleryGrid({
 
       {enableLightbox && selectedItem ? (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300"
           role="dialog"
           aria-modal="true"
         >
-          <div className="w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl animate-fade-up">
             <div className="relative h-72 bg-gradient-to-br from-[#1f2937] to-[#111827] sm:h-80">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.35),_transparent_45%)]" />
               <button

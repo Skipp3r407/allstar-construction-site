@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function FaqPage() {
         description="Get quick answers about our process, project types, and what to expect when working with All-Star Custom Construction LLC."
       />
 
+      <Reveal>
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading
@@ -73,8 +75,11 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
-      <CtaBanner title="Still Have Questions?" subtitle="Reach out for straightforward guidance and a free quote tailored to your project." />
+      <Reveal>
+        <CtaBanner title="Still Have Questions?" subtitle="Reach out for straightforward guidance and a free quote tailored to your project." />
+      </Reveal>
     </>
   );
 }

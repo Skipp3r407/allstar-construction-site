@@ -38,6 +38,91 @@ a {
   text-decoration: none;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(212, 160, 23, 0);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(8px);
+    opacity: 0.2;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2.2s ease-in-out infinite;
+}
+
+.scroll-dot {
+  animation: scrollDot 1.1s ease-in-out infinite alternate;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-float-slow,
+  .animate-pulse-soft,
+  .scroll-dot {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @layer components {
   .container-main {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
@@ -48,11 +133,11 @@ a {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition hover:-translate-y-0.5 hover:bg-[#bf9014] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937];
+    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-[#bf9014] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#f3f4f6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937];
+    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937];
   }
 
   .card-premium {

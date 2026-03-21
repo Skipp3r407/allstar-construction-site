@@ -7,14 +7,17 @@ type ServiceCardProps = {
 
 export function ServiceCard({ title, summary }: ServiceCardProps) {
   return (
-    <article className="card-premium">
-      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1f2937] text-sm font-bold text-[#d4a017]">
+    <article className="card-premium group cursor-pointer">
+      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1f2937] text-sm font-bold text-[#d4a017] transition duration-300 group-hover:-translate-y-0.5 group-hover:rotate-6">
         ★
       </div>
       <h3 className="text-xl font-bold text-[#111827]">{title}</h3>
       <p className="mt-3 text-sm text-[#6b7280]">{summary}</p>
-      <Link href="/contact" className="mt-4 inline-block text-sm font-semibold text-[#1f2937] hover:text-[#d4a017]">
-        Get an Estimate →
+      <Link
+        href="/contact"
+        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#1f2937] transition duration-300 hover:text-[#d4a017]"
+      >
+        Get an Estimate <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
       </Link>
     </article>
   );

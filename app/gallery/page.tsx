@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
@@ -103,6 +104,7 @@ export default function GalleryPage() {
         description="Explore project examples that highlight our craftsmanship, custom planning, and quality installation standards."
       />
 
+      <Reveal>
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading
@@ -115,11 +117,14 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
-      <CtaBanner
-        title="Ready to Start Your Outdoor Project?"
-        subtitle="Request a free quote or call now to discuss your concrete, masonry, pergola, deck, fence, or retaining wall project."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Ready to Start Your Outdoor Project?"
+          subtitle="Request a free quote or call now to discuss your concrete, masonry, pergola, deck, fence, or retaining wall project."
+        />
+      </Reveal>
     </>
   );
 }
