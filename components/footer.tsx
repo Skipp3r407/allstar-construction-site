@@ -73,7 +73,20 @@ export function Footer() {
       </div>
       <div className="border-t border-gray-800">
         <div className="container-main flex flex-col gap-2 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {company.name}. All rights reserved.</p>
+          <div className="text-center sm:text-left">
+            <p>© {year} {company.name}. All rights reserved.</p>
+            <p className="mt-2 text-sm text-gray-400">
+              Website Design by{" "}
+              <a
+                href="https://elevatedigitalstudios.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-cyan-400 transition hover:text-cyan-300"
+              >
+                Elevate Digital Co.
+              </a>
+            </p>
+          </div>
           <p>{company.trustLine}</p>
         </div>
       </div>
