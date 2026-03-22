@@ -83,7 +83,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="font-medium text-cyan-400 transition hover:text-cyan-300"
               >
-                Elevate Digital Co.
+                Elevate Digital Studio.
               </a>
             </p>
           </div>
