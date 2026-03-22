@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
   description:
     "All-Star Custom Construction LLC is led by 26+ years of construction experience and proudly established for 12 years in Central Florida, delivering premium concrete, masonry, pavers, pergolas, fire pits, decks, fences, and retaining walls.",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
   alternates: {
     canonical: "/",
   },
