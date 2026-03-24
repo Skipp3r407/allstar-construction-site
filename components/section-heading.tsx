@@ -1,3 +1,5 @@
+"use client";
+
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;

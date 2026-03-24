@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 type ServiceCardProps = {
@@ -7,7 +9,7 @@ type ServiceCardProps = {
 
 export function ServiceCard({ title, summary }: ServiceCardProps) {
   return (
-    <article className="card-premium group cursor-pointer">
+    <article className="card-premium group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1f2937] text-sm font-bold text-[#d4a017] transition duration-300 group-hover:-translate-y-0.5 group-hover:rotate-6">
         ★
       </div>

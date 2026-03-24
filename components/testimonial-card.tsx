@@ -1,3 +1,5 @@
+"use client";
+
 type TestimonialCardProps = {
   name: string;
   city: string;
