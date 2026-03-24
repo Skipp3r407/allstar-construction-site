@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { PageHero } from "@/components/page-hero";
+import { Reveal, StaggerReveal } from "@/components/reveal";
 import { ServiceDetailCard } from "@/components/service-detail-card";
 
 export const metadata: Metadata = {
@@ -120,20 +121,27 @@ export default function ServicesPage() {
       />
 
       <section className="section-pad">
-        <div className="container-main grid gap-6 lg:grid-cols-2">
-          {detailedServices.map((service) => (
-            <ServiceDetailCard
-              key={service.title}
-              title={service.title}
-              overview={service.overview}
-              benefits={service.benefits}
-              reason={service.reason}
-            />
-          ))}
+        <div className="container-main">
+          <StaggerReveal className="grid gap-6 lg:grid-cols-2" alternateSides staggerMs={60}>
+            {detailedServices.map((service) => (
+              <ServiceDetailCard
+                key={service.title}
+                title={service.title}
+                overview={service.overview}
+                benefits={service.benefits}
+                reason={service.reason}
+              />
+            ))}
+          </StaggerReveal>
         </div>
       </section>
 
-      <CtaBanner title="Need Help Choosing the Right Service?" subtitle="Tell us about your property goals and we will recommend the best approach for design, durability, and budget." />
+      <Reveal direction="up">
+        <CtaBanner
+          title="Need Help Choosing the Right Service?"
+          subtitle="Tell us about your property goals and we will recommend the best approach for design, durability, and budget."
+        />
+      </Reveal>
     </>
   );
 }

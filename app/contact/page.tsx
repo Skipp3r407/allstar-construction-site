@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { company } from "@/lib/site-data";
 
@@ -20,7 +21,8 @@ export default function ContactPage() {
 
       <section className="section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2">
-          <div>
+          <Reveal direction="left">
+            <div>
             <SectionHeading
               eyebrow="Get in Touch"
               title="Let’s Plan Your Outdoor Project"
@@ -42,11 +44,14 @@ export default function ContactPage() {
                 <p className="mt-1 text-sm text-[#6b7280]">Built for Central Florida homeowners.</p>
               </div>
             </div>
-          </div>
+            </div>
+          </Reveal>
 
-          <div>
-            <ContactForm />
-          </div>
+          <Reveal direction="right">
+            <div>
+              <ContactForm />
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

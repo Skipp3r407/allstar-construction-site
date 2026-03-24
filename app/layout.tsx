@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import { Chatbot } from "@/components/Chatbot";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { company } from "@/lib/site-data";
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Chatbot />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -21,7 +21,7 @@ export function ServiceDetailCard({ title, overview, benefits, reason }: Service
         ))}
       </ul>
       <p className="mt-4 text-sm font-medium text-[#1f2937]">{reason}</p>
-      <Link href="/contact" className="mt-5 inline-flex text-sm font-semibold text-[#1f2937] hover:text-[#d4a017]">
+      <Link href="/contact" className="link-inline mt-5 text-sm font-semibold text-[#1f2937]">
         Request a free quote for this service →
       </Link>
     </article>

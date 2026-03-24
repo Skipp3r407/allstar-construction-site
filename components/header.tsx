@@ -47,8 +47,8 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`group relative pb-1 text-sm font-medium transition duration-300 hover:text-[#d4a017] ${
-                    isActive ? "text-[#111827]" : "text-[#4b5563]"
+                  className={`group relative pb-1 text-sm transition duration-300 hover:text-[#d4a017] ${
+                    isActive ? "font-semibold text-[#111827]" : "font-medium text-[#4b5563]"
                   }`}
                 >
                   {link.label}
@@ -65,7 +65,7 @@ export function Header() {
           <div className="hidden shrink-0 items-center gap-3 lg:flex">
             <a
               href={company.phoneLink}
-              className="rounded-md border border-[#1f2937] px-3 py-2 text-sm font-semibold text-[#1f2937] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6] hover:shadow-sm"
+              className="rounded-md border border-[#1f2937] px-3 py-2 text-sm font-semibold text-[#1f2937] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#f3f4f6] hover:shadow-sm"
             >
               Call {company.phone}
             </a>
@@ -97,16 +97,24 @@ export function Header() {
           }`}
         >
             <nav className="grid gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-md px-3 py-2 text-sm font-semibold text-[#1f2937] hover:bg-[#f3f4f6]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-200 ${
+                      isActive
+                        ? "bg-[#111827]/5 text-[#111827] ring-1 ring-[#d4a017]/35"
+                        : "text-[#1f2937] hover:bg-[#f3f4f6]"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
             <div className="mt-4 grid gap-3">
               <a href={company.phoneLink} className="btn-secondary w-full">

@@ -32,7 +32,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-[#d4a017]">
+                  <Link href={link.href} className="link-footer inline-block">
                     {link.label}
                   </Link>
                 </li>
@@ -58,12 +58,12 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               <li>Serving homeowners in Central Florida</li>
               <li>
-                <a href={company.phoneLink} className="hover:text-[#d4a017]">
+                <a href={company.phoneLink} className="link-footer">
                   {company.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${company.email}`} className="hover:text-[#d4a017]">
+                <a href={`mailto:${company.email}`} className="link-footer break-all">
                   {company.email}
                 </a>
               </li>

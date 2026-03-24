@@ -1,26 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { CtaBanner } from "@/components/cta-banner";
 import { GalleryGrid } from "@/components/gallery-grid";
-import {
-  fadeInLeft,
-  fadeInUp,
-  fadeInLeftSubtle,
-  fadeInRightSubtle,
-  ScrollInLeft,
-  ScrollInRight,
-  ScrollInUp,
-  ScrollInUpZoom,
-  staggerContainer,
-} from "@/components/animations";
+import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { company, coreServices, serviceAreas, testimonials } from "@/lib/site-data";
-
-const viewport = { once: true, margin: "-100px" as const };
 
 type HomePageContentProps = {
   trustPoints: string[];
@@ -28,8 +13,6 @@ type HomePageContentProps = {
 };
 
 export function HomePageContent({ trustPoints, featuredProjects }: HomePageContentProps) {
-  const reduce = useReducedMotion();
-
   return (
     <>
       <section className="relative overflow-hidden bg-[#111827] py-20 text-white sm:py-24">
@@ -37,53 +20,34 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
         <div className="animate-float-slow absolute right-8 top-20 hidden h-28 w-28 rounded-full bg-[#d4a017]/20 blur-2xl md:block" />
         <div className="container-main relative">
           <div className="max-w-3xl">
-            <motion.div
-              variants={fadeInLeft}
-              initial={reduce ? false : "hidden"}
-              whileInView="show"
-              viewport={viewport}
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
-                Serving Central Florida Homeowners
-              </p>
-              <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                Custom Outdoor Construction in Central Florida
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg text-gray-200">
-                Backed by {company.ownerExperience} of industry expertise, All-Star Custom
-                Construction LLC delivers concrete, masonry, and outdoor living builds that combine
-                durability with premium curb appeal.
-              </p>
-              <p className="mt-4 text-xl font-semibold uppercase tracking-[0.12em] text-[#d4a017] sm:text-2xl">
-                12+ Years Serving Central Florida
-              </p>
-            </motion.div>
+            <p className="hero-line hero-line-1 text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
+              Serving Central Florida Homeowners
+            </p>
+            <h1 className="hero-line hero-line-2 mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              Custom Outdoor Construction in Central Florida
+            </h1>
+            <p className="hero-line hero-line-3 mt-5 max-w-2xl text-lg text-gray-200">
+              Backed by {company.ownerExperience} of industry expertise, All-Star Custom Construction
+              LLC delivers concrete, masonry, and outdoor living builds that combine durability with
+              premium curb appeal.
+            </p>
+            <p className="hero-line hero-line-4 mt-4 text-xl font-semibold uppercase tracking-[0.12em] text-[#d4a017] sm:text-2xl">
+              12+ Years Serving Central Florida
+            </p>
 
-            <motion.div
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
-              variants={fadeInUp}
-              initial={reduce ? false : "hidden"}
-              whileInView="show"
-              viewport={viewport}
-            >
-              <Link href="/contact" className="btn-primary">
+            <div className="hero-line hero-line-5 mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="btn-primary animate-pulse-soft text-center">
                 Request a Free Quote
               </Link>
               <a
                 href={company.phoneLink}
-                className="btn-secondary border-white bg-transparent text-white hover:bg-white/10"
+                className="btn-secondary border-white bg-transparent text-white hover:bg-white/10 hover:ring-white/30"
               >
                 Call Now
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="mt-10 grid gap-4 sm:grid-cols-3"
-              variants={fadeInUp}
-              initial={reduce ? false : "hidden"}
-              whileInView="show"
-              viewport={viewport}
-            >
+            <div className="hero-line hero-line-6 mt-10 grid gap-4 sm:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
                 <p className="text-sm font-semibold">{company.ownerExperience} Experience</p>
               </div>
@@ -93,9 +57,9 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
                 <p className="text-sm font-semibold">Quality Workmanship Guarantee</p>
               </div>
-            </motion.div>
+            </div>
 
-            <div className="mt-10">
+            <div className="hero-line hero-line-7 mt-10">
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-300">
                 Scroll
                 <span className="flex h-7 w-4 items-start justify-center rounded-full border border-gray-300 p-1">
@@ -109,64 +73,52 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
 
       <section className="section-pad">
         <div className="container-main">
-          <ScrollInUp>
+          <Reveal direction="up">
             <SectionHeading
               eyebrow="Our Services"
               title="Concrete, Masonry, and Outdoor Living Solutions"
               description="From strong foundations to polished outdoor entertainment spaces, we deliver custom construction work designed for beauty and function."
               centered
             />
-          </ScrollInUp>
-          <motion.div
+          </Reveal>
+          <StaggerReveal
             className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-            variants={staggerContainer}
-            initial={reduce ? false : "hidden"}
-            whileInView="show"
-            viewport={viewport}
+            alternateSides
+            staggerMs={68}
           >
-            {coreServices.map((service, i) => (
-              <motion.div
-                key={service.title}
-                variants={i % 2 === 0 ? fadeInLeftSubtle : fadeInRightSubtle}
-                className="h-full"
-              >
+            {coreServices.map((service) => (
+              <div key={service.title} className="h-full">
                 <ServiceCard title={service.title} summary={service.summary} />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </StaggerReveal>
         </div>
       </section>
 
       <section className="bg-white section-pad">
         <div className="container-main">
-          <ScrollInLeft>
+          <Reveal direction="left">
             <SectionHeading
               eyebrow="Why Homeowners Choose Us"
               title="Trusted Craftsmanship With a Local Reputation"
               description="We bring a contractor mindset that values precision, transparency, and long-term durability on every project."
             />
-          </ScrollInLeft>
-          <motion.div
-            className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            variants={staggerContainer}
-            initial={reduce ? false : "hidden"}
-            whileInView="show"
-            viewport={viewport}
-          >
+          </Reveal>
+          <StaggerReveal className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerMs={55}>
             {trustPoints.map((point) => (
-              <motion.div key={point} variants={fadeInUp} className="h-full">
+              <div key={point} className="h-full">
                 <div className="card-premium h-full">
                   <p className="font-semibold text-[#1f2937]">{point}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </StaggerReveal>
         </div>
       </section>
 
       <section className="section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-center">
-          <ScrollInLeft>
+          <Reveal direction="left">
             <div>
               <SectionHeading
                 eyebrow="About All-Star"
@@ -177,9 +129,9 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
                 Learn More About Our Company
               </Link>
             </div>
-          </ScrollInLeft>
-          <ScrollInRight>
-            <div className="rounded-2xl bg-gradient-to-br from-[#1f2937] to-[#111827] p-8 text-white shadow-xl">
+          </Reveal>
+          <Reveal direction="right">
+            <div className="rounded-2xl bg-gradient-to-br from-[#1f2937] to-[#111827] p-8 text-white shadow-xl transition-shadow duration-300 hover:shadow-2xl">
               <h3 className="text-2xl font-bold">Built to Handle Florida Conditions</h3>
               <p className="mt-4 text-gray-200">
                 Heat, rain, and heavy use demand smart material choices and proper installation.
@@ -192,63 +144,57 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
                 <li>• Honest timelines with clear communication from start to finish</li>
               </ul>
             </div>
-          </ScrollInRight>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-white section-pad">
         <div className="container-main">
-          <ScrollInUp>
+          <Reveal direction="up">
             <SectionHeading
               eyebrow="Featured Projects"
               title="Craftsmanship You Can See"
               description="See the quality of our work across Orlando and surrounding Central Florida communities."
             />
-          </ScrollInUp>
-          <ScrollInUpZoom className="mt-10">
+          </Reveal>
+          <Reveal direction="up-zoom" className="mt-10">
             <GalleryGrid items={featuredProjects} />
-          </ScrollInUpZoom>
-          <ScrollInUp className="mt-8 inline-block">
+          </Reveal>
+          <Reveal direction="up" className="mt-8 inline-block">
             <Link href="/gallery" className="btn-secondary">
               View Full Gallery
             </Link>
-          </ScrollInUp>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-pad">
         <div className="container-main">
-          <ScrollInUp>
+          <Reveal direction="up">
             <SectionHeading
               eyebrow="Client Reviews"
               title="What Homeowners Say About Working With Our Team"
               description="Local feedback from homeowners who trusted us with custom outdoor improvement projects."
             />
-          </ScrollInUp>
-          <motion.div
-            className="mt-8 grid gap-5 md:grid-cols-3"
-            variants={staggerContainer}
-            initial={reduce ? false : "hidden"}
-            whileInView="show"
-            viewport={viewport}
-          >
+          </Reveal>
+          <StaggerReveal className="mt-8 grid gap-5 md:grid-cols-3" staggerMs={80}>
             {testimonials.slice(0, 3).map((item) => (
-              <motion.div key={item.name} variants={fadeInUp}>
+              <div key={item.name}>
                 <TestimonialCard name={item.name} city={item.city} quote={item.quote} />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-          <ScrollInUp className="mt-8 inline-block">
+          </StaggerReveal>
+          <Reveal direction="up" className="mt-8 inline-block">
             <Link href="/testimonials" className="btn-secondary">
               Read More Testimonials
             </Link>
-          </ScrollInUp>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-white section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2">
-          <ScrollInLeft>
+          <Reveal direction="left">
             <div>
               <SectionHeading
                 eyebrow="Service Areas"
@@ -263,29 +209,31 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
                 Explore Service Areas
               </Link>
             </div>
-          </ScrollInLeft>
-          <ScrollInRight>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {serviceAreas.map((city) => (
-                <div
-                  key={city}
-                  className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-[#1f2937] shadow-sm"
-                >
-                  {city}, FL
-                </div>
-              ))}
-            </div>
-          </ScrollInRight>
+          </Reveal>
+          <StaggerReveal
+            className="grid gap-3 sm:grid-cols-2"
+            alternateSides
+            staggerMs={42}
+          >
+            {serviceAreas.map((city) => (
+              <div
+                key={city}
+                className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-[#1f2937] shadow-sm transition duration-300 hover:border-[#d4a017]/40 hover:shadow-md"
+              >
+                {city}, FL
+              </div>
+            ))}
+          </StaggerReveal>
         </div>
       </section>
 
-      <ScrollInUp>
+      <Reveal direction="up">
         <CtaBanner />
-      </ScrollInUp>
+      </Reveal>
 
       <section className="section-pad pt-0">
         <div className="container-main">
-          <ScrollInUp>
+          <Reveal direction="up">
             <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <SectionHeading
                 eyebrow="Contact"
@@ -310,7 +258,7 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
                 Request a Free Quote
               </Link>
             </div>
-          </ScrollInUp>
+          </Reveal>
         </div>
       </section>
     </>

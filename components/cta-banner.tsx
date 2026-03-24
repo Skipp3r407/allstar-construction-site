@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { company } from "@/lib/site-data";
 
@@ -24,13 +22,13 @@ export function CtaBanner({
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center rounded-lg bg-[#d4a017] px-6 py-3 font-semibold text-white shadow transition-all duration-200 hover:bg-[#bf9014] sm:w-auto"
+                className="btn-primary animate-pulse-soft px-6 py-3 text-center sm:min-w-[200px]"
               >
                 Request a Free Quote
               </Link>
               <a
                 href={company.phoneLink}
-                className="inline-flex w-full items-center justify-center rounded-lg border border-white bg-white px-6 py-3 font-semibold !text-[#111827] transition-all duration-200 hover:bg-[#f3f4f6] sm:w-auto"
+                className="btn-secondary inline-flex min-w-[140px] items-center justify-center border-white bg-white px-6 py-3 !text-[#111827] hover:bg-[#f3f4f6]"
                 aria-label={`Call ${company.phone}`}
               >
                 Call Now

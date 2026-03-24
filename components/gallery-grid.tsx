@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { StaggerReveal } from "@/components/reveal";
 
 export type GalleryItem = {
   title: string;
@@ -8,11 +9,53 @@ export type GalleryItem = {
   caption: string;
 };
 
+function GalleryCard({
+  item,
+  enableLightbox,
+  onOpen,
+}: {
+  item: GalleryItem;
+  enableLightbox: boolean;
+  onOpen: () => void;
+}) {
+  return (
+    <article className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-1 hover:ring-[#d4a017]/15">
+      <button
+        type="button"
+        className="block w-full text-left"
+        onClick={() => (enableLightbox ? onOpen() : undefined)}
+        aria-label={`Open preview for ${item.title}`}
+      >
+        <div
+          className="relative h-52 overflow-hidden bg-gradient-to-br from-[#374151] to-[#111827]"
+          role="img"
+          aria-label={`${item.title} - ${item.category} project placeholder image`}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.35),_transparent_45%)]" />
+          <div className="absolute inset-0 transition duration-300 group-hover:scale-[1.03] group-hover:bg-black/15" />
+          <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-gradient-to-t from-black/55 to-transparent p-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <p className="text-sm font-semibold text-white">{item.title}</p>
+          </div>
+          <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#111827]">
+            {item.category}
+          </span>
+        </div>
+        <div className="p-4">
+          <h3 className="text-base font-semibold text-[#111827]">{item.title}</h3>
+          <p className="mt-2 text-sm text-[#6b7280]">{item.caption}</p>
+        </div>
+      </button>
+    </article>
+  );
+}
+
 type GalleryGridProps = {
   items: GalleryItem[];
   categories?: string[];
   enableFilters?: boolean;
   enableLightbox?: boolean;
+  /** Stagger card entrance on scroll (Gallery page). Off by default to avoid nesting with outer Reveal. */
+  enableStagger?: boolean;
 };
 
 export function GalleryGrid({
@@ -20,6 +63,7 @@ export function GalleryGrid({
   categories = [],
   enableFilters = false,
   enableLightbox = false,
+  enableStagger = false,
 }: GalleryGridProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -58,40 +102,34 @@ export function GalleryGrid({
         </div>
       ) : null}
 
-      <div key={activeCategory} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 animate-fade-up">
-        {filteredItems.map((item) => (
-          <article
-            key={`${item.title}-${item.category}`}
-            className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-          >
-            <button
-              type="button"
-              className="block w-full text-left"
-              onClick={() => (enableLightbox ? setSelectedItem(item) : undefined)}
-              aria-label={`Open preview for ${item.title}`}
-            >
-              <div
-                className="relative h-52 overflow-hidden bg-gradient-to-br from-[#374151] to-[#111827]"
-                role="img"
-                aria-label={`${item.title} - ${item.category} project placeholder image`}
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.35),_transparent_45%)]" />
-                <div className="absolute inset-0 transition duration-300 group-hover:scale-105 group-hover:bg-black/15" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-gradient-to-t from-black/55 to-transparent p-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-sm font-semibold text-white">{item.title}</p>
-                </div>
-                <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#111827]">
-                  {item.category}
-                </span>
-              </div>
-              <div className="p-4">
-                <h3 className="text-base font-semibold text-[#111827]">{item.title}</h3>
-                <p className="mt-2 text-sm text-[#6b7280]">{item.caption}</p>
-              </div>
-            </button>
-          </article>
-        ))}
-      </div>
+      {enableStagger ? (
+        <StaggerReveal
+          key={activeCategory}
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          staggerMs={64}
+          alternateSides
+        >
+          {filteredItems.map((item) => (
+            <GalleryCard
+              key={`${item.title}-${item.category}`}
+              item={item}
+              enableLightbox={enableLightbox}
+              onOpen={() => setSelectedItem(item)}
+            />
+          ))}
+        </StaggerReveal>
+      ) : (
+        <div key={activeCategory} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredItems.map((item) => (
+            <GalleryCard
+              key={`${item.title}-${item.category}`}
+              item={item}
+              enableLightbox={enableLightbox}
+              onOpen={() => setSelectedItem(item)}
+            />
+          ))}
+        </div>
+      )}
 
       {enableLightbox && selectedItem ? (
         <div

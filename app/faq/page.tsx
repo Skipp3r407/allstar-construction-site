@@ -62,23 +62,26 @@ export default function FaqPage() {
         description="Get quick answers about our process, project types, and what to expect when working with All-Star Custom Construction LLC."
       />
 
-      <Reveal>
       <section className="section-pad">
         <div className="container-main">
-          <SectionHeading
-            eyebrow="Helpful Answers"
-            title="Planning a Project? Start Here."
-            description="If you need more details, our team is always happy to walk you through options and next steps."
-          />
-          <div className="mt-8 max-w-4xl">
+          <Reveal direction="up">
+            <SectionHeading
+              eyebrow="Helpful Answers"
+              title="Planning a Project? Start Here."
+              description="If you need more details, our team is always happy to walk you through options and next steps."
+            />
+          </Reveal>
+          <Reveal direction="up" className="mt-8 max-w-4xl">
             <FaqAccordion items={faqItems} />
-          </div>
+          </Reveal>
         </div>
       </section>
-      </Reveal>
 
-      <Reveal>
-        <CtaBanner title="Still Have Questions?" subtitle="Reach out for straightforward guidance and a free quote tailored to your project." />
+      <Reveal direction="up">
+        <CtaBanner
+          title="Still Have Questions?"
+          subtitle="Reach out for straightforward guidance and a free quote tailored to your project."
+        />
       </Reveal>
     </>
   );

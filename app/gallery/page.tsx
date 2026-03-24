@@ -104,22 +104,28 @@ export default function GalleryPage() {
         description="Explore project examples that highlight our craftsmanship, custom planning, and quality installation standards."
       />
 
-      <Reveal>
       <section className="section-pad">
         <div className="container-main">
-          <SectionHeading
-            eyebrow="Our Work"
-            title="Our Project Gallery"
-            description="Filter by project type to preview the concrete, masonry, and outdoor living work we complete for local homeowners."
-          />
+          <Reveal direction="up">
+            <SectionHeading
+              eyebrow="Our Work"
+              title="Our Project Gallery"
+              description="Filter by project type to preview the concrete, masonry, and outdoor living work we complete for local homeowners."
+            />
+          </Reveal>
           <div className="mt-8">
-            <GalleryGrid items={galleryItems} categories={categories} enableFilters enableLightbox />
+            <GalleryGrid
+              items={galleryItems}
+              categories={categories}
+              enableFilters
+              enableLightbox
+              enableStagger
+            />
           </div>
         </div>
       </section>
-      </Reveal>
 
-      <Reveal>
+      <Reveal direction="up">
         <CtaBanner
           title="Ready to Start Your Outdoor Project?"
           subtitle="Request a free quote or call now to discuss your concrete, masonry, pergola, deck, fence, or retaining wall project."

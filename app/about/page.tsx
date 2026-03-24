@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { company } from "@/lib/site-data";
 
@@ -28,7 +29,8 @@ export default function AboutPage() {
 
       <section className="section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2">
-          <div>
+          <Reveal direction="left">
+            <div>
             <SectionHeading
               eyebrow="Who We Are"
               title="A Hands-On Construction Team Focused on Lasting Results"
@@ -38,7 +40,9 @@ export default function AboutPage() {
               Homeowners trust us because we communicate clearly, show up prepared, and deliver
               clean finished work that holds up in Florida conditions.
             </p>
-          </div>
+            </div>
+          </Reveal>
+          <Reveal direction="right">
           <div className="card-premium">
             <h2 className="text-2xl font-bold text-[#111827]">Our Mission</h2>
             <p className="mt-3 text-[#4b5563]">
@@ -51,11 +55,13 @@ export default function AboutPage() {
               material performance, and finishing details that support both structure and design.
             </p>
           </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-pad bg-white">
         <div className="container-main grid gap-8 lg:grid-cols-2">
+          <Reveal direction="left">
           <div className="card-premium">
             <h2 className="text-2xl font-bold text-[#111827]">What Makes Us Different</h2>
             <ul className="mt-4 space-y-3 text-sm text-[#374151]">
@@ -65,6 +71,8 @@ export default function AboutPage() {
               <li>• Respect for your property with tidy, organized work zones</li>
             </ul>
           </div>
+          </Reveal>
+          <Reveal direction="right">
           <div className="card-premium">
             <h2 className="text-2xl font-bold text-[#111827]">What We Build</h2>
             <ul className="mt-4 space-y-2 text-sm text-[#374151]">
@@ -73,10 +81,13 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
+          </Reveal>
         </div>
       </section>
 
-      <CtaBanner title="Let’s Build Something That Lasts" />
+      <Reveal direction="up">
+        <CtaBanner title="Let’s Build Something That Lasts" />
+      </Reveal>
     </>
   );
 }
