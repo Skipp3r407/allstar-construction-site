@@ -56,16 +56,6 @@ a {
   }
 }
 
-@keyframes splashBlobDrift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(2%, -2%) scale(1.03);
-  }
-}
-
 @keyframes splashRingGlow {
   0%,
   100% {
@@ -89,14 +79,6 @@ a {
 
 .logo-splash-img {
   animation: logoSplashIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.splash-blob-a {
-  animation: splashBlobDrift 12s ease-in-out infinite;
-}
-
-.splash-blob-b {
-  animation: splashBlobDrift 14s ease-in-out infinite reverse;
 }
 
 .splash-logo-frame {
@@ -138,11 +120,6 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   .logo-splash-img {
-    animation: none;
-  }
-
-  .splash-blob-a,
-  .splash-blob-b {
     animation: none;
   }
 

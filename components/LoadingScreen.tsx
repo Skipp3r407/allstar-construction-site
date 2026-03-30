@@ -98,10 +98,11 @@ export function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-[#fafafa] to-[#f4f4f5] motion-reduce:transition-none ${
+      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden bg-white motion-reduce:transition-none ${
         phase === "fade" ? "opacity-0" : "opacity-100"
       }`}
       style={{
+        backgroundColor: "#ffffff",
         transitionProperty: "opacity",
         transitionDuration: `${FADE_MS}ms`,
         transitionTimingFunction: "ease-out",
@@ -110,11 +111,6 @@ export function LoadingScreen() {
       role="presentation"
       aria-hidden
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="splash-blob splash-blob-a absolute -left-[20%] top-[10%] h-[45vh] w-[45vh] rounded-full bg-[#d4a017]/[0.09] blur-3xl" />
-        <div className="splash-blob splash-blob-b absolute -right-[15%] bottom-[5%] h-[40vh] w-[50vh] rounded-full bg-[#1f2937]/[0.04] blur-3xl" />
-      </div>
-
       <div
         className="relative z-10 flex flex-col items-center px-6"
         style={{
