@@ -15,9 +15,21 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.allstarcustomconstruction.com"),
-  title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
+  title: {
+    default:
+      "All-Star Custom Construction LLC | Outdoor Construction in Central Florida",
+    template: "%s | All-Star Custom Construction LLC",
+  },
   description:
-    "All-Star Custom Construction LLC is led by 26+ years of construction experience and proudly established for 12 years in Central Florida, delivering premium concrete, masonry, pavers, pergolas, fire pits, decks, fences, and retaining walls.",
+    "Central Florida outdoor construction: 26+ years experience, 12+ years local service. Pavers, pergolas, concrete, masonry, fire pits, decks, fences, retaining walls. Request a free quote.",
+  keywords: [
+    "Central Florida contractor",
+    "Orlando pavers",
+    "pergola builder Florida",
+    "concrete contractor",
+    "retaining wall",
+    "outdoor construction",
+  ],
   icons: {
     icon: "/images/favicon.png",
     shortcut: "/images/favicon.png",
@@ -25,6 +37,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "All-Star Custom Construction LLC",
+    title: "All-Star Custom Construction LLC | Central Florida",
+    description:
+      "Premium outdoor construction for homeowners: pavers, pergolas, concrete, masonry, and more.",
   },
 };
 

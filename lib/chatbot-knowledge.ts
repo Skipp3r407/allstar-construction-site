@@ -1142,3 +1142,6 @@ export const chatbotFaqs: ChatbotFaq[] = [
   ...faqsByCity(),
   ...faqsByServiceLine(),
 ];
+
+/** Total matchable FAQ entries (static + city + service variants). */
+export const CHATBOT_FAQ_COUNT = chatbotFaqs.length;

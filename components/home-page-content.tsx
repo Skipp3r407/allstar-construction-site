@@ -17,47 +17,58 @@ type HomePageContentProps = {
 export function HomePageContent({ trustPoints, featuredGallery }: HomePageContentProps) {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#111827] py-20 text-white sm:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.3),_transparent_40%)]" />
-        <div className="animate-float-slow absolute right-8 top-20 hidden h-28 w-28 rounded-full bg-[#d4a017]/20 blur-2xl md:block" />
+      <section className="relative overflow-hidden bg-[#111827] py-20 text-white sm:py-24 lg:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,160,23,0.28),_transparent_42%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35" />
+        <div className="animate-float-slow absolute right-8 top-20 hidden h-32 w-32 rounded-full bg-[#d4a017]/15 blur-3xl md:block" />
         <div className="container-main relative">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl lg:max-w-4xl">
             <p className="hero-line hero-line-1 text-sm font-semibold uppercase tracking-[0.2em] text-[#d4a017]">
               Serving Central Florida Homeowners
             </p>
-            <h1 className="hero-line hero-line-2 mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              Custom Outdoor Construction in Central Florida
+            <h1 className="hero-line hero-line-2 mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+              Outdoor Construction That Elevates Your Property
             </h1>
-            <p className="hero-line hero-line-3 mt-5 max-w-2xl text-lg text-gray-200">
-              Backed by {company.ownerExperience} of industry expertise, All-Star Custom Construction
-              LLC delivers concrete, masonry, and outdoor living builds that combine durability with
-              premium curb appeal.
+            <p className="hero-line hero-line-3 mt-5 max-w-2xl text-lg leading-relaxed text-gray-200 sm:text-xl">
+              Pavers, pergolas, concrete, masonry, fire pits, decks, fences, and retaining walls —
+              planned and built for Florida weather, done right the first time.
             </p>
-            <p className="hero-line hero-line-4 mt-4 text-xl font-semibold uppercase tracking-[0.12em] text-[#d4a017] sm:text-2xl">
-              12+ Years Serving Central Florida
+            <p className="hero-line hero-line-4 mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold text-gray-200 sm:text-base">
+              <span className="rounded-full bg-white/10 px-3 py-1.5 text-[#d4a017] ring-1 ring-[#d4a017]/30">
+                26+ Years Experience
+              </span>
+              <span className="text-gray-500" aria-hidden>
+                •
+              </span>
+              <span className="rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/15">
+                12+ Years Serving Central Florida
+              </span>
             </p>
 
-            <div className="hero-line hero-line-5 mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary animate-pulse-soft text-center">
+            <div className="hero-line hero-line-5 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="btn-primary animate-pulse-soft min-h-[48px] justify-center text-center shadow-lg shadow-[#d4a017]/25"
+              >
                 Request a Free Quote
               </Link>
               <a
                 href={company.phoneLink}
-                className="btn-secondary border-white bg-transparent text-white hover:bg-white/10 hover:ring-white/30"
+                className="btn-secondary min-h-[48px] justify-center border-white bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/15 hover:ring-white/40"
               >
                 Call Now
               </a>
             </div>
 
             <div className="hero-line hero-line-6 mt-10 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm font-semibold">{company.ownerExperience} Experience</p>
+              <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+                <p className="text-sm font-semibold leading-snug">Site-specific planning for your property</p>
               </div>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm font-semibold">{company.yearsEstablished} in Business</p>
+              <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+                <p className="text-sm font-semibold leading-snug">Clear quotes &amp; steady communication</p>
               </div>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm font-semibold">Quality Workmanship Guarantee</p>
+              <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+                <p className="text-sm font-semibold leading-snug">See real work in our project gallery</p>
               </div>
             </div>
 

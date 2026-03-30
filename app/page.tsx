@@ -3,9 +3,9 @@ import { HomePageContent } from "@/components/home-page-content";
 import { getFeaturedGalleryItems } from "@/lib/gallery-data";
 
 export const metadata: Metadata = {
-  title: "All-Star Custom Construction LLC | Custom Concrete, Masonry & Outdoor Living in Central Florida",
+  title: "Central Florida Outdoor Construction & Free Quotes",
   description:
-    "Led by 26+ years of construction expertise and established for 12 years in Central Florida, All-Star Custom Construction LLC delivers premium concrete, masonry, pavers, pergolas, decks, fences, and retaining walls.",
+    "26+ years experience, 12+ years serving Central Florida. Pavers, pergolas, concrete, masonry, fire pits, decks, fences, retaining walls — request a free quote from All-Star Custom Construction LLC.",
 };
 
 const trustPoints = [

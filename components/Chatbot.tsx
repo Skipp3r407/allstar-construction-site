@@ -6,11 +6,11 @@ import { ChatBubble } from "@/components/chat/ChatBubble";
 import { LeadForm, type LeadPayload } from "@/components/chat/LeadForm";
 import type { QuickReplyItem } from "@/components/chat/QuickReplies";
 import { QuickReplies } from "@/components/chat/QuickReplies";
-import { chatbotFaqs } from "@/lib/chatbot-knowledge";
+import { CHATBOT_FAQ_COUNT, chatbotFaqs } from "@/lib/chatbot-knowledge";
 import { FALLBACK_REPLY, findBestFaq, wantsLeadCapture } from "@/lib/chatbot-match";
 import { CHATBOT_COMPANY, CHATBOT_SERVICES, LEAD_STORAGE_KEY } from "@/lib/chatbot-types";
 
-const OPENING_MESSAGE = `Hi! I'm the ${CHATBOT_COMPANY.name} assistant. I can help with services, service areas, common project questions, and quote requests — answers come from our on-site knowledge base (not a generic AI).`;
+const OPENING_MESSAGE = `Hi! I'm the ${CHATBOT_COMPANY.name} assistant. I can help with services, service areas, and quote requests — I match your questions to ${CHATBOT_FAQ_COUNT}+ on-site FAQs (not generic AI). Tap Get Quote, Services, or Call Now below.`;
 
 const SERVICES_OVERVIEW = `We specialize in outdoor construction across ${CHATBOT_COMPANY.area}: concrete footings, slabs & sidewalks, pavers, masonry, pergolas, fire pits, decks, fences, and retaining walls. Tap a topic below or ask in your own words.`;
 
@@ -21,13 +21,13 @@ const PRICING_REPLY = `Pricing depends on project size, materials, site conditio
 const TIMELINE_REPLY = `Timelines vary by project size, materials, and weather. After we understand your scope, we'll share a realistic schedule. The fastest way to get specifics is a quote request or a call to ${CHATBOT_COMPANY.phoneDisplay}.`;
 
 const MAIN_QUICK_REPLIES: QuickReplyItem[] = [
-  { id: "get-quote", label: "Get a Quote" },
+  { id: "get-quote", label: "Get Quote" },
   { id: "services", label: "Services" },
-  { id: "areas", label: "Areas We Serve" },
-  { id: "pricing", label: "Pricing Questions" },
-  { id: "timeline", label: "Project Timeline" },
   { id: "call", label: "Call Now" },
-  { id: "form", label: "Use quick form" },
+  { id: "areas", label: "Areas We Serve" },
+  { id: "pricing", label: "Pricing" },
+  { id: "timeline", label: "Timeline" },
+  { id: "form", label: "Quick form" },
 ];
 
 const SERVICE_TOPIC_REPLIES: QuickReplyItem[] = [

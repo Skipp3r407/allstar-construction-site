@@ -24,47 +24,47 @@ export const coreServices = [
   {
     title: "Concrete Footings",
     summary:
-      "Strong foundation work for additions, pergolas, fences, and structural outdoor projects.",
+      "Engineered footings that protect your investment—proper depth, reinforcement, and code-aware prep for structures that stay solid in Florida soil.",
   },
   {
     title: "Slabs & Sidewalks",
     summary:
-      "Durable slabs and clean concrete walkways designed for daily use and curb appeal.",
+      "Smooth, durable concrete surfaces for daily traffic: slabs that drain right and walkways that boost safety and curb appeal.",
   },
   {
     title: "Pavers",
     summary:
-      "Custom paver patios, walkways, and driveway accents built for Florida weather.",
+      "Custom paver patios and paths with crisp patterns and edges—built to handle heat, rain, and heavy use without looking tired.",
   },
   {
     title: "Masonry",
     summary:
-      "Precision block and brick work for outdoor features, walls, and decorative upgrades.",
+      "Stone and block craftsmanship for columns, veneers, and features that add texture, strength, and a finished look to your exterior.",
   },
   {
     title: "Pergolas",
     summary:
-      "Custom pergolas that create comfortable shade and define beautiful outdoor living spaces.",
+      "Defined outdoor rooms with shade and structure—ideal for dining, seating, and a high-end backyard focal point.",
   },
   {
     title: "Fire Pits",
     summary:
-      "Backyard fire features tailored to your layout, style, and entertaining goals.",
+      "Built-in gathering spaces for evening entertaining: safe layout, seating-friendly design, and materials chosen for longevity.",
   },
   {
     title: "Decks",
     summary:
-      "Functional, low-maintenance deck builds that expand how you enjoy your backyard.",
+      "Expand your living space with level, code-smart framing and decking that fits how you host, relax, and use your yard.",
   },
   {
     title: "Fences",
     summary:
-      "Privacy and perimeter fencing installed with careful layout and lasting materials.",
+      "Privacy and perimeter solutions with clean lines and solid posts—security and style without cutting corners.",
   },
   {
     title: "Retaining Walls",
     summary:
-      "Engineered retaining walls that improve drainage, stability, and outdoor design.",
+      "Grade control that works: proper base, drainage, and structure to reclaim usable yard and protect your landscape.",
   },
 ];
 

@@ -26,6 +26,12 @@ body {
   padding: 0;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -311,7 +317,7 @@ a {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#bf9014] hover:shadow-lg hover:shadow-[#d4a017]/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/15;
+    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#bf9014] hover:shadow-lg hover:shadow-[#d4a017]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/15;
   }
 
   .btn-secondary {

@@ -85,7 +85,12 @@ export function ContactForm() {
   };
 
   return (
-    <form className="card-premium space-y-4" onSubmit={handleSubmit} noValidate>
+    <form
+      className="card-premium space-y-4"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-busy={status === "loading"}
+    >
       {prefilledNote ? (
         <p className="rounded-md border border-[#d4a017]/35 bg-[#fff8e8] px-3 py-2 text-xs text-[#78350f]">
           Some fields were filled from your chat assistant. Review and add photos or notes before sending.
@@ -186,9 +191,19 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto"
+        className="btn-primary inline-flex min-h-[48px] w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-80 sm:w-auto"
       >
-        {status === "loading" ? "Sending…" : "Request a Free Quote"}
+        {status === "loading" ? (
+          <>
+            <span
+              className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-[#111827] border-t-transparent"
+              aria-hidden
+            />
+            Sending…
+          </>
+        ) : (
+          "Request a Free Quote"
+        )}
       </button>
       {status === "success" ? (
         <p className="rounded-md border border-emerald-300 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
