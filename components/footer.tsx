@@ -116,7 +116,7 @@ export function Footer() {
                 href="https://elevatedigitalstudios.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-cyan-400 transition hover:text-cyan-300"
+                className="link-footer font-medium"
               >
                 Elevate Digital Studio.
               </a>

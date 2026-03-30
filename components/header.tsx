@@ -8,7 +8,7 @@ import { company, navLinks } from "@/lib/site-data";
 import { servicesNavItems } from "@/lib/nav-services";
 
 const LOGO_CLASSES =
-  "h-[5.2rem] w-auto object-contain object-left transition duration-300 group-hover:opacity-95 sm:h-[5.85rem] lg:h-[7.8rem]";
+  "h-[6.24rem] w-auto object-contain object-left transition duration-300 group-hover:opacity-95 sm:h-[7.02rem] lg:h-[9.36rem]";
 
 function ChevronDown({ className = "" }: { className?: string }) {
   return (
@@ -184,13 +184,13 @@ export function Header() {
         }`}
       >
         <div className="container-main">
-          <div className="flex min-h-[5.5rem] items-center justify-between gap-4 py-3 sm:min-h-[6.25rem] lg:min-h-[7.75rem] lg:gap-6 lg:py-4">
+          <div className="flex min-h-[6.6rem] items-center justify-between gap-4 py-3 sm:min-h-[7.5rem] lg:min-h-[9.3rem] lg:gap-6 lg:py-4">
             <Link href="/" className="group flex shrink-0 items-center">
               <Image
                 src="/images/logo.png"
                 alt="All-Star Custom Construction LLC"
-                width={936}
-                height={374}
+                width={1123}
+                height={449}
                 priority
                 className={LOGO_CLASSES}
               />

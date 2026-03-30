@@ -11,7 +11,7 @@ type ServiceDetailCardProps = {
 
 export function ServiceDetailCard({ id, title, overview, benefits, reason }: ServiceDetailCardProps) {
   return (
-    <article id={id} className="card-premium scroll-mt-28">
+    <article id={id} className="card-premium scroll-mt-36 lg:scroll-mt-48">
       <h2 className="text-2xl font-bold text-[#111827]">{title}</h2>
       <p className="mt-3 text-[#4b5563]">{overview}</p>
       <ul className="mt-4 space-y-2">
