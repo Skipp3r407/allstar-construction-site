@@ -4,11 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { siteLogo, siteLogoClassLarge } from "@/lib/logo";
 import { company, navLinks } from "@/lib/site-data";
 import { servicesNavItems } from "@/lib/nav-services";
-
-const LOGO_CLASSES =
-  "h-[6.24rem] w-auto object-contain object-left transition duration-300 group-hover:opacity-95 sm:h-[7.02rem] lg:h-[9.36rem]";
 
 function ChevronDown({ className = "" }: { className?: string }) {
   return (
@@ -190,12 +188,12 @@ export function Header() {
               className="group flex shrink-0 items-center rounded-lg outline-none ring-offset-2 ring-offset-white transition-[box-shadow,opacity] duration-200 hover:opacity-100 hover:ring-2 hover:ring-[#d4a017]/45 focus-visible:ring-2 focus-visible:ring-[#d4a017]"
             >
               <Image
-                src="/images/logo.png"
+                src={siteLogo.src}
                 alt="All-Star Custom Construction LLC"
-                width={1123}
-                height={449}
+                width={siteLogo.width}
+                height={siteLogo.height}
                 priority
-                className={LOGO_CLASSES}
+                className={siteLogoClassLarge}
               />
             </Link>
 

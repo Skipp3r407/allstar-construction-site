@@ -39,25 +39,54 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    opacity 0.2s ease;
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  /* Page content defaults — stays in base so utilities/components can override (e.g. nav hovers). */
+  main a:hover:not([class*="btn-"]):not([class*="no-accent-hover"]),
+  footer a:hover:not([class*="btn-"]):not(.link-footer) {
+    color: var(--construction-gold);
+  }
+
+  main button:hover:not(:disabled):not([class*="btn-"]):not([class*="no-accent-hover"]) {
+    color: var(--construction-gold);
+  }
 }
 
-/* Default gold hover for page content links & buttons (header/chat/aside use explicit classes).
-   Opt out: add class containing `no-accent-hover`. */
-main a:hover:not([class*="btn-"]):not([class*="no-accent-hover"]),
-footer a:hover:not([class*="btn-"]):not(.link-footer) {
-  color: var(--construction-gold);
-}
+/* Header: explicit gold hovers — wins over nested spans with static gray text + fixes cascade vs. unlayered a {} */
+@layer components {
+  header nav a:hover,
+  header nav a:focus-visible {
+    color: var(--construction-gold) !important;
+  }
 
-main button:hover:not(:disabled):not([class*="btn-"]):not([class*="no-accent-hover"]) {
-  color: var(--construction-gold);
+  header nav button:hover,
+  header nav button:focus-visible {
+    color: var(--construction-gold) !important;
+  }
+
+  header nav button:hover svg,
+  header nav button:focus-visible svg {
+    color: var(--construction-gold) !important;
+  }
+
+  aside nav a:hover,
+  aside nav a:focus-visible {
+    color: var(--construction-gold) !important;
+  }
+
+  header nav [role="menu"] a:hover span,
+  header nav [role="menu"] a:focus-visible span {
+    color: var(--construction-gold) !important;
+  }
 }
 
 /* Logo splash (initial load overlay) */

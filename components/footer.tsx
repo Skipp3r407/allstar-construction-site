@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteLogo, siteLogoClassLarge } from "@/lib/logo";
 import { company, coreServices, navLinks } from "@/lib/site-data";
 
 export function Footer() {
@@ -30,13 +31,15 @@ export function Footer() {
 
         <div className="mt-12 grid items-start gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
           <div>
-            <Image
-              src="/images/logo.png"
-              alt="All-Star Custom Construction LLC"
-              width={150}
-              height={69}
-              className="h-[2.875rem] w-auto object-contain opacity-95 sm:h-[3.15rem]"
-            />
+            <Link href="/" className="group inline-flex max-w-full">
+              <Image
+                src={siteLogo.src}
+                alt="All-Star Custom Construction LLC"
+                width={siteLogo.width}
+                height={siteLogo.height}
+                className={siteLogoClassLarge}
+              />
+            </Link>
             <h3 className="mt-3 text-lg font-bold text-white">{company.name}</h3>
             <p className="mt-3 text-sm leading-relaxed text-gray-300">
               Premium outdoor construction for Central Florida homeowners — concrete, pavers, masonry,
