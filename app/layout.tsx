@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     "outdoor construction",
   ],
   icons: {
-    icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/apple-icon.png",
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
   },
   alternates: {
     canonical: "/",
