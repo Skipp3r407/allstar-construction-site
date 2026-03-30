@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { siteLogo } from "@/lib/logo";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /** Time logo stays fully visible before auto-advance (ms). */
@@ -129,10 +130,10 @@ export function LoadingScreen() {
         >
           <div className="splash-ring-inner rounded-[14px] bg-white p-6 sm:rounded-[14px] sm:p-8">
             <Image
-              src="/images/logo.png"
+              src={siteLogo.src}
               alt=""
-              width={720}
-              height={288}
+              width={siteLogo.width}
+              height={siteLogo.height}
               priority
               className="logo-splash-img h-auto w-[min(78vw,400px)] object-contain sm:w-[min(72vw,440px)]"
             />

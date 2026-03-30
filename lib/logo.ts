@@ -1,8 +1,9 @@
 /** Single source of truth for site logo asset + display classes (header, footer, etc.). */
 export const siteLogo = {
   src: "/images/logo.png",
-  width: 1123,
-  height: 449,
+  /** Intrinsic size of `public/images/logo.png` (keeps Next/Image aspect correct). */
+  width: 408,
+  height: 226,
 } as const;
 
 /** Large nav mark — same in header & footer so branding matches. */
