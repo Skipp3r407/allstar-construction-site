@@ -35,9 +35,9 @@ export function LoadingScreen() {
 
   const [phase, setPhase] = useState<"show" | "fade" | "done">("show");
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
-  const autoFadeRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const autoDoneRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const skipFadeRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const autoFadeRef = useRef<number | undefined>(undefined);
+  const autoDoneRef = useRef<number | undefined>(undefined);
+  const skipFadeRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (prefersReduced) return;

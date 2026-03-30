@@ -1,15 +1,17 @@
 import Link from "next/link";
 
 type ServiceDetailCardProps = {
+  /** Anchor id for /services#slug navigation */
+  id?: string;
   title: string;
   overview: string;
   benefits: string[];
   reason: string;
 };
 
-export function ServiceDetailCard({ title, overview, benefits, reason }: ServiceDetailCardProps) {
+export function ServiceDetailCard({ id, title, overview, benefits, reason }: ServiceDetailCardProps) {
   return (
-    <article className="card-premium">
+    <article id={id} className="card-premium scroll-mt-28">
       <h2 className="text-2xl font-bold text-[#111827]">{title}</h2>
       <p className="mt-3 text-[#4b5563]">{overview}</p>
       <ul className="mt-4 space-y-2">

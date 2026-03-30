@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const detailedServices = [
   {
+    id: "concrete-footings",
     title: "Concrete Footings",
     overview:
       "Footings are the base of structural outdoor work. We install properly sized, reinforced footings for pergolas, fences, and supporting elements.",
@@ -23,17 +24,31 @@ const detailedServices = [
     reason: "Homeowners choose professional footings to protect larger investments above grade.",
   },
   {
-    title: "Slabs & Sidewalks",
+    id: "concrete-slabs",
+    title: "Concrete Slabs",
     overview:
-      "We pour clean, level concrete slabs and sidewalks for patios, utility spaces, walkways, and access improvements.",
+      "We pour clean, level concrete slabs for patios, utility areas, and outdoor rooms that need a solid, low-maintenance surface.",
     benefits: [
-      "Low-maintenance and long-lasting surfaces",
-      "Safer walking paths around your property",
-      "Improved function for backyard and side-yard use",
+      "Long-lasting performance in Florida climates",
+      "Level base for furniture, grills, and outdoor kitchens",
+      "Straightforward drainage planning when paired with grading",
     ],
-    reason: "A quality slab or sidewalk creates immediate function with reliable performance.",
+    reason: "A quality slab creates immediate function with reliable performance.",
   },
   {
+    id: "sidewalks",
+    title: "Sidewalks",
+    overview:
+      "We pour and finish concrete sidewalks and walkways for safer access, cleaner curb appeal, and better flow around your property.",
+    benefits: [
+      "Safer walking paths for family and guests",
+      "Improved access and circulation around the home",
+      "Clean edges and finishes that match your home’s style",
+    ],
+    reason: "Sidewalks are a practical upgrade that improves everyday use and first impressions.",
+  },
+  {
+    id: "pavers",
     title: "Pavers",
     overview:
       "Custom paver installations provide a premium look for patios, pathways, and decorative outdoor zones.",
@@ -45,6 +60,7 @@ const detailedServices = [
     reason: "Pavers are popular with homeowners who want high-end style with everyday durability.",
   },
   {
+    id: "masonry",
     title: "Masonry",
     overview:
       "From feature walls to functional elements, our masonry work adds definition, strength, and timeless character to outdoor spaces.",
@@ -56,6 +72,7 @@ const detailedServices = [
     reason: "Masonry is ideal when you want substance, texture, and long-term performance.",
   },
   {
+    id: "pergolas",
     title: "Pergolas",
     overview:
       "A custom pergola can turn an open backyard into a shaded, comfortable gathering area with architectural appeal.",
@@ -67,6 +84,7 @@ const detailedServices = [
     reason: "Homeowners choose pergolas for both function and a dramatic design upgrade.",
   },
   {
+    id: "fire-pits",
     title: "Fire Pits",
     overview:
       "We build fire pit areas that become natural focal points for entertaining and relaxing throughout the year.",
@@ -78,6 +96,7 @@ const detailedServices = [
     reason: "Fire pit features create a premium outdoor living experience at home.",
   },
   {
+    id: "decks",
     title: "Decks",
     overview:
       "Our deck projects are designed for practical flow, weather resistance, and seamless transitions from indoors to outdoors.",
@@ -89,6 +108,7 @@ const detailedServices = [
     reason: "Decks give homeowners a functional platform for everyday outdoor living.",
   },
   {
+    id: "fences",
     title: "Fences",
     overview:
       "We install custom fence systems to improve privacy, safety, and boundary definition around your property.",
@@ -100,6 +120,7 @@ const detailedServices = [
     reason: "A well-built fence combines practical protection with visual polish.",
   },
   {
+    id: "retaining-walls",
     title: "Retaining Walls",
     overview:
       "Retaining walls help manage grade changes, drainage, and erosion while adding structure to landscaping plans.",
@@ -125,7 +146,8 @@ export default function ServicesPage() {
           <StaggerReveal className="grid gap-6 lg:grid-cols-2" alternateSides staggerMs={60}>
             {detailedServices.map((service) => (
               <ServiceDetailCard
-                key={service.title}
+                key={service.id}
+                id={service.id}
                 title={service.title}
                 overview={service.overview}
                 benefits={service.benefits}

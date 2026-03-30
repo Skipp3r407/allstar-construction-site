@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     "outdoor construction",
   ],
   icons: {
-    icon: "/images/favicon.png",
-    shortcut: "/images/favicon.png",
-    apple: "/images/favicon.png",
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/apple-icon.png",
   },
   alternates: {
     canonical: "/",
@@ -45,6 +45,16 @@ export const metadata: Metadata = {
     title: "All-Star Custom Construction LLC | Central Florida",
     description:
       "Premium outdoor construction for homeowners: pavers, pergolas, concrete, masonry, and more.",
+    images: [
+      {
+        url: "/images/logo.png",
+        alt: "All-Star Custom Construction LLC logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/logo.png"],
   },
 };
 
