@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CtaBanner } from "@/components/cta-banner";
+import { GoogleReviewTeaser } from "@/components/google-review-teaser";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -188,6 +189,9 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
             <Link href="/testimonials" className="btn-secondary">
               Read More Testimonials
             </Link>
+          </Reveal>
+          <Reveal direction="up">
+            <GoogleReviewTeaser />
           </Reveal>
         </div>
       </section>

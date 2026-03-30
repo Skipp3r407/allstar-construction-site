@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { resolveResendFrom } from "@/lib/resend-from";
 
 const MAX_LEN = {
   name: 200,
@@ -7,6 +8,8 @@ const MAX_LEN = {
   service: 120,
   message: 8000,
 };
+
+const DEFAULT_INQUIRY_TO = "allstarconstruction85@gmail.com";
 
 function escapeHtml(s: string): string {
   return s
@@ -21,6 +24,21 @@ function isNonEmptyString(v: unknown): v is string {
   return typeof v === "string" && v.trim().length > 0;
 }
 
+function resolveInquiryTo(raw: string | undefined): string {
+  const t = raw?.trim();
+  return t && t.length > 0 ? t : DEFAULT_INQUIRY_TO;
+}
+
+/** Safe client-facing copy; keeps Resend validation hints without dumping stack traces. */
+function formatSendFailureMessage(resendMessage: string | undefined): string {
+  const base = "We couldn't send your message right now.";
+  if (!resendMessage?.trim()) {
+    return `${base} Please try again in a moment or call us directly.`;
+  }
+  const clipped = resendMessage.trim().slice(0, 280);
+  return `${base} (${clipped}) If this keeps happening, please call us.`;
+}
+
 /**
  * POST /api/contact — sends inquiry email via Resend (server-only).
  */
@@ -28,13 +46,22 @@ export async function POST(request: Request) {
   console.log("[api/contact] Request received");
 
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM;
-  const to = process.env.PROJECT_INQUIRY_TO_EMAIL;
+  const fromRaw = process.env.EMAIL_FROM;
+  const from = resolveResendFrom(fromRaw);
+  const to = resolveInquiryTo(process.env.PROJECT_INQUIRY_TO_EMAIL);
 
-  if (!apiKey || !from || !to) {
-    console.error("[api/contact] Missing env: RESEND_API_KEY, EMAIL_FROM, or PROJECT_INQUIRY_TO_EMAIL");
+  console.log("[api/contact] EMAIL_FROM env:", fromRaw?.trim() ? "set" : "unset");
+  console.log("[api/contact] resolved `from` for Resend:", from);
+  console.log("[api/contact] PROJECT_INQUIRY_TO_EMAIL env:", process.env.PROJECT_INQUIRY_TO_EMAIL?.trim() ? "set" : "unset");
+  console.log("[api/contact] resolved `to`:", to);
+
+  if (!apiKey) {
+    console.error("[api/contact] Missing env: RESEND_API_KEY");
     return Response.json(
-      { ok: false, error: "Email is not configured. Please try again later or call us directly." },
+      {
+        ok: false,
+        error: "Email is not configured. Please try again later or call us directly.",
+      },
       { status: 503 }
     );
   }
@@ -107,30 +134,42 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
+  const sendPayload = {
+    from,
+    to: [to],
+    replyTo: email,
+    subject,
+    html,
+  };
+
+  console.log("[api/contact] Resend send — from:", sendPayload.from, "| to:", sendPayload.to.join(", "));
+
   try {
-    const result = await resend.emails.send({
-      from,
-      to: [to],
-      replyTo: email,
-      subject,
-      html,
-    });
+    const result = await resend.emails.send(sendPayload);
 
     console.log("[api/contact] Resend response:", JSON.stringify(result, null, 2));
 
     if (result.error) {
-      console.error("[api/contact] Resend error object:", result.error);
+      const errMsg =
+        typeof result.error === "object" && result.error !== null && "message" in result.error
+          ? String((result.error as { message: unknown }).message)
+          : String(result.error);
+      console.error("[api/contact] Resend error:", errMsg, result.error);
       return Response.json(
-        { ok: false, error: "Could not send your message. Please try again or call us." },
+        { ok: false, error: formatSendFailureMessage(errMsg) },
         { status: 502 }
       );
     }
 
     return Response.json({ ok: true });
   } catch (err) {
-    console.error("[api/contact] Resend send failed:", err);
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("[api/contact] Resend send failed:", message, err);
     return Response.json(
-      { ok: false, error: "Could not send your message. Please try again or call us directly." },
+      {
+        ok: false,
+        error: formatSendFailureMessage(message),
+      },
       { status: 502 }
     );
   }

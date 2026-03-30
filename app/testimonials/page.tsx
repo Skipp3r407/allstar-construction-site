@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
+import { GoogleReviewsSection } from "@/components/google-reviews-section";
 import { PageHero } from "@/components/page-hero";
 import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -19,6 +20,8 @@ export default function TestimonialsPage() {
         title="What Central Florida Homeowners Say"
         description="Real feedback from clients who trusted us with custom outdoor construction and masonry projects."
       />
+
+      <GoogleReviewsSection />
 
       <section className="section-pad">
         <div className="container-main">

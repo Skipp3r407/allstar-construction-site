@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { Chatbot } from "@/components/Chatbot";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Header } from "@/components/header";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/footer";
 import { company } from "@/lib/site-data";
 
@@ -34,9 +36,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <LoadingScreen />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ScrollToTop />
         <Chatbot />
         <script
           type="application/ld+json"

@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getGoogleWriteReviewUrl } from "@/lib/google-business";
 import { company, coreServices, navLinks } from "@/lib/site-data";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const googleReviewUrl = getGoogleWriteReviewUrl();
 
   return (
     <footer className="bg-[#111827] text-gray-200">
@@ -67,6 +69,18 @@ export function Footer() {
                   {company.email}
                 </a>
               </li>
+              {googleReviewUrl ? (
+                <li>
+                  <a
+                    href={googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-footer inline-block"
+                  >
+                    Leave a Google review
+                  </a>
+                </li>
+              ) : null}
             </ul>
           </div>
         </div>
