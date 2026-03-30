@@ -151,7 +151,7 @@ export function LoadingScreen() {
         <button
           type="button"
           onClick={handleSkip}
-          className="mt-5 min-h-[44px] rounded-full border border-[#d4a017]/40 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#1f2937] shadow-sm transition hover:border-[#d4a017] hover:bg-[#fffef8] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] active:scale-[0.98]"
+          className="mt-5 min-h-[44px] rounded-full border border-[#d4a017]/40 bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#1f2937] shadow-sm transition-all duration-200 hover:border-[#d4a017] hover:bg-[#fffef8] hover:text-[#d4a017] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] active:scale-[0.98]"
         >
           Skip
         </button>

@@ -144,7 +144,7 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
             </div>
           </Reveal>
           <Reveal direction="right">
-            <div className="rounded-2xl bg-gradient-to-br from-[#1f2937] to-[#111827] p-8 text-white shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+            <div className="rounded-2xl bg-gradient-to-br from-[#1f2937] to-[#111827] p-8 text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:ring-2 hover:ring-[#d4a017]/25">
               <h3 className="text-2xl font-bold">Built to Handle Florida Conditions</h3>
               <p className="mt-4 text-gray-200">
                 Heat, rain, and heavy use demand smart material choices and proper installation.
@@ -235,7 +235,7 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
             {serviceAreas.map((city) => (
               <div
                 key={city}
-                className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-[#1f2937] shadow-sm transition duration-300 hover:border-[#d4a017]/40 hover:shadow-md"
+                className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-[#1f2937] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d4a017]/50 hover:text-[#d4a017] hover:shadow-md hover:shadow-[#d4a017]/10 motion-reduce:transform-none motion-reduce:hover:translate-y-0"
               >
                 {city}, FL
               </div>

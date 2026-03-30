@@ -20,7 +20,7 @@ export function Footer() {
               </Link>
               <a
                 href={company.phoneLink}
-                className="btn-secondary min-h-[48px] border-white bg-white !text-[#111827] hover:bg-gray-100"
+                className="btn-secondary min-h-[48px] border-white bg-white !text-[#111827] hover:!border-[#d4a017]/70 hover:!bg-[#fffef8] hover:!text-[#d4a017]"
               >
                 Call {company.phone}
               </a>

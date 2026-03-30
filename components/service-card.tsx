@@ -15,7 +15,9 @@ export function ServiceCard({ title, summary }: ServiceCardProps) {
       <h3 className="text-xl font-bold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
         {title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">{summary}</p>
+      <p className="mt-3 text-sm leading-relaxed text-[#6b7280] transition-colors duration-200 group-hover:text-[#d4a017]">
+        {summary}
+      </p>
       <Link
         href="/contact"
         className="link-inline mt-4 inline-flex min-h-[44px] items-center gap-1 text-sm font-semibold text-[#1f2937]"

@@ -29,7 +29,7 @@ export function CtaBanner({
               </Link>
               <a
                 href={company.phoneLink}
-                className="btn-secondary inline-flex min-h-[48px] min-w-[140px] items-center justify-center border-white bg-white px-6 py-3 !text-[#111827] hover:!border-[#d4a017]/55 hover:!bg-[#fffef8] hover:!text-[#9a3412]"
+                className="btn-secondary inline-flex min-h-[48px] min-w-[140px] items-center justify-center border-white bg-white px-6 py-3 !text-[#111827] hover:!border-[#d4a017]/55 hover:!bg-[#fffef8] hover:!text-[#d4a017]"
                 aria-label={`Call ${company.phone}`}
               >
                 Call Now

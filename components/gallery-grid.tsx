@@ -63,8 +63,12 @@ function GalleryCard({
           </span>
         </div>
         <div className="p-4">
-          <h3 className="text-base font-semibold text-[#111827]">{item.title}</h3>
-          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#6b7280]">{item.caption}</p>
+          <h3 className="text-base font-semibold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
+            {item.title}
+          </h3>
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#6b7280] transition-colors duration-200 group-hover:text-[#d4a017]">
+            {item.caption}
+          </p>
         </div>
       </button>
     </article>
@@ -216,7 +220,7 @@ export function GalleryGrid({
               <button
                 type="button"
                 onClick={closeLightbox}
-                className="absolute right-2 top-2 rounded-full bg-white/95 px-3 py-1.5 text-sm font-semibold text-[#111827] shadow-md transition hover:bg-white"
+                className="absolute right-2 top-2 rounded-full bg-white/95 px-3 py-1.5 text-sm font-semibold text-[#111827] shadow-md transition-all duration-200 hover:bg-[#fffef8] hover:text-[#d4a017]"
               >
                 Close
               </button>
@@ -228,7 +232,7 @@ export function GalleryGrid({
                       e.stopPropagation();
                       goPrev();
                     }}
-                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#111827] shadow-md transition hover:bg-white min-[400px]:h-12 min-[400px]:w-12"
+                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#111827] shadow-md transition-all duration-200 hover:bg-[#fffef8] hover:text-[#d4a017] min-[400px]:h-12 min-[400px]:w-12"
                     aria-label="Previous image"
                   >
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
@@ -241,7 +245,7 @@ export function GalleryGrid({
                       e.stopPropagation();
                       goNext();
                     }}
-                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#111827] shadow-md transition hover:bg-white min-[400px]:h-12 min-[400px]:w-12"
+                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#111827] shadow-md transition-all duration-200 hover:bg-[#fffef8] hover:text-[#d4a017] min-[400px]:h-12 min-[400px]:w-12"
                     aria-label="Next image"
                   >
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>

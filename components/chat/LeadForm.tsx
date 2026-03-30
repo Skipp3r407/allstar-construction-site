@@ -119,7 +119,7 @@ export function LeadForm({ onSubmitted, onCancel }: LeadFormProps) {
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-semibold text-[#374151] hover:bg-gray-50"
+          className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-semibold text-[#374151] transition-colors duration-200 hover:border-[#d4a017]/45 hover:bg-[#fffef8] hover:text-[#d4a017]"
         >
           Back to chat
         </button>

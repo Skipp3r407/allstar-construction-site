@@ -30,9 +30,11 @@ export default function ServiceAreasPage() {
           </Reveal>
           <StaggerReveal className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerMs={50}>
             {serviceAreas.map((city) => (
-              <article key={city} className="card-premium">
-                <h3 className="text-xl font-bold text-[#111827]">{city}</h3>
-                <p className="mt-2 text-sm text-[#6b7280]">
+              <article key={city} className="group card-premium">
+                <h3 className="text-xl font-bold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
+                  {city}
+                </h3>
+                <p className="mt-2 text-sm text-[#6b7280] transition-colors duration-200 group-hover:text-[#d4a017]">
                   Custom outdoor construction and masonry services for homeowners in {city}, FL.
                 </p>
               </article>

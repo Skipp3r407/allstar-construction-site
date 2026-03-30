@@ -22,7 +22,7 @@ export function QuickReplies({ items, onSelect, disabled }: QuickRepliesProps) {
           type="button"
           disabled={disabled}
           onClick={() => onSelect(item.id)}
-          className="rounded-full border border-[#1f2937]/15 bg-white px-3 py-1.5 text-xs font-semibold text-[#111827] shadow-sm transition hover:border-[#d4a017]/50 hover:bg-[#fffbeb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#d4a017] disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-full border border-[#1f2937]/15 bg-white px-3 py-1.5 text-xs font-semibold text-[#111827] shadow-sm transition-all duration-200 hover:border-[#d4a017]/55 hover:bg-[#fffbeb] hover:text-[#d4a017] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#d4a017] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {item.label}
         </button>

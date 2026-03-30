@@ -367,7 +367,7 @@ export function Chatbot() {
           </div>
           <a
             href={CHATBOT_COMPANY.phoneLink}
-            className="hidden text-xs font-semibold text-[#d4a017] underline-offset-2 hover:underline sm:inline"
+            className="hidden text-xs font-semibold text-[#d4a017] underline-offset-2 transition-colors hover:text-white hover:underline sm:inline"
           >
             {CHATBOT_COMPANY.phoneDisplay}
           </a>
@@ -395,7 +395,7 @@ export function Chatbot() {
                       {i < arr.length - 1 ? (
                         <a
                           href={CHATBOT_COMPANY.phoneLink}
-                          className="font-semibold text-[#b45309] underline decoration-[#d4a017] underline-offset-2"
+                          className="font-semibold text-[#b45309] underline decoration-[#d4a017] underline-offset-2 transition-colors hover:text-[#d4a017]"
                         >
                           {CHATBOT_COMPANY.phoneDisplay}
                         </a>
@@ -450,7 +450,7 @@ export function Chatbot() {
               }}
               placeholder={leadMode ? "Type your answer…" : "Ask about your project…"}
               disabled={typing || showLeadForm}
-              className="min-w-0 flex-1 rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none transition focus:border-[#d4a017] focus:ring-2 focus:ring-[#d4a017]/25 disabled:bg-gray-100"
+              className="min-w-0 flex-1 rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:ring-2 focus:ring-[#d4a017]/25 disabled:bg-gray-100"
               aria-label="Message"
             />
             <button
@@ -479,7 +479,7 @@ export function Chatbot() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Close chat assistant" : "Open chat assistant — quotes and FAQs"}
-        className="pointer-events-auto flex items-center gap-2 rounded-full border border-[#d4a017]/40 bg-gradient-to-br from-[#111827] to-[#1f2937] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#d4a017]/20 transition hover:scale-[1.02] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] motion-reduce:transition-none"
+        className="pointer-events-auto flex items-center gap-2 rounded-full border border-[#d4a017]/40 bg-gradient-to-br from-[#111827] to-[#1f2937] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#d4a017]/20 transition-all duration-200 hover:scale-[1.02] hover:border-[#d4a017] hover:text-[#d4a017] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] motion-reduce:transition-none"
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#d4a017] text-[#111827]" aria-hidden>
           <svg

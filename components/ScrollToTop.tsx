@@ -30,7 +30,7 @@ export default function ScrollToTop() {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed bottom-20 right-4 z-[95] flex h-12 w-12 min-h-[48px] min-w-[48px] items-center justify-center rounded-full border border-[#d4a017]/30 bg-gradient-to-br from-[#111827] to-[#1f2937] text-white shadow-lg shadow-black/20 transition duration-200 hover:scale-105 hover:border-[#d4a017]/50 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] motion-reduce:transition-none motion-reduce:hover:scale-100 sm:bottom-24 sm:right-6"
+      className="fixed bottom-20 right-4 z-[95] flex h-12 w-12 min-h-[48px] min-w-[48px] items-center justify-center rounded-full border border-[#d4a017]/30 bg-gradient-to-br from-[#111827] to-[#1f2937] text-white shadow-lg shadow-black/20 transition duration-200 hover:scale-105 hover:border-[#d4a017]/60 hover:text-[#d4a017] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017] motion-reduce:transition-none motion-reduce:hover:scale-100 sm:bottom-24 sm:right-6"
       aria-label="Scroll to top"
     >
       <svg

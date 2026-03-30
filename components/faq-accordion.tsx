@@ -21,18 +21,20 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         return (
           <article
             key={item.question}
-            className="overflow-hidden rounded-xl border border-gray-200 bg-white transition duration-300 hover:border-gray-300"
+            className="group overflow-hidden rounded-xl border border-gray-200 bg-white transition duration-300 hover:border-[#d4a017]/45"
           >
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-[#fffef8]"
               aria-expanded={isOpen}
             >
-              <span className="font-semibold text-[#111827]">{item.question}</span>
+              <span className="font-semibold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
+                {item.question}
+              </span>
               <span
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-lg font-bold text-[#1f2937] transition duration-300 ${
-                  isOpen ? "rotate-180 bg-[#f3f4f6]" : ""
+                className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gray-300 text-lg font-bold text-[#1f2937] transition duration-300 group-hover:border-[#d4a017] group-hover:text-[#d4a017] ${
+                  isOpen ? "rotate-180 border-[#d4a017]/50 bg-[#fffef8] text-[#d4a017]" : ""
                 }`}
               >
                 {isOpen ? "−" : "+"}

@@ -49,6 +49,17 @@ a {
     opacity 0.2s ease;
 }
 
+/* Default gold hover for page content links & buttons (header/chat/aside use explicit classes).
+   Opt out: add class containing `no-accent-hover`. */
+main a:hover:not([class*="btn-"]):not([class*="no-accent-hover"]),
+footer a:hover:not([class*="btn-"]):not(.link-footer) {
+  color: var(--construction-gold);
+}
+
+main button:hover:not(:disabled):not([class*="btn-"]):not([class*="no-accent-hover"]) {
+  color: var(--construction-gold);
+}
+
 /* Logo splash (initial load overlay) */
 @keyframes logoSplashIn {
   from {
@@ -397,7 +408,7 @@ a {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#d4a017]/55 hover:bg-[#fffef8] hover:text-[#9a3412] hover:shadow-md hover:shadow-[#d4a017]/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/10 motion-reduce:transform-none motion-reduce:hover:scale-100;
+    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#d4a017]/55 hover:bg-[#fffef8] hover:text-[#d4a017] hover:shadow-md hover:shadow-[#d4a017]/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/10 motion-reduce:transform-none motion-reduce:hover:scale-100;
   }
 
   .card-premium {

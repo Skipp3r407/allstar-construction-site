@@ -107,7 +107,7 @@ export function ContactForm() {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 focus:border-[#1f2937] focus:shadow-sm focus:ring-2 focus:ring-[#1f2937]/25"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:shadow-sm focus:ring-2 focus:ring-[#d4a017]/25"
           placeholder="Your full name"
           autoComplete="name"
         />
@@ -140,7 +140,7 @@ export function ContactForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 focus:border-[#1f2937] focus:shadow-sm focus:ring-2 focus:ring-[#1f2937]/25"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:shadow-sm focus:ring-2 focus:ring-[#d4a017]/25"
             placeholder="you@example.com"
             autoComplete="email"
           />
@@ -153,7 +153,7 @@ export function ContactForm() {
         <select
           id="service"
           name="service"
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 focus:border-[#1f2937] focus:shadow-sm focus:ring-2 focus:ring-[#1f2937]/25"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:shadow-sm focus:ring-2 focus:ring-[#d4a017]/25"
           value={service}
           onChange={(e) => setService(e.target.value)}
           required
@@ -184,7 +184,7 @@ export function ContactForm() {
           required
           value={details}
           onChange={(e) => setDetails(e.target.value)}
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 focus:border-[#1f2937] focus:shadow-sm focus:ring-2 focus:ring-[#1f2937]/25"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:shadow-sm focus:ring-2 focus:ring-[#d4a017]/25"
           placeholder="Tell us about your project goals, timeline, and property details."
         />
       </div>

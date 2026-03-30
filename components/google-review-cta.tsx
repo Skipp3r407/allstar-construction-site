@@ -61,7 +61,7 @@ export function GoogleReviewCta() {
               </a>
               <a
                 href={company.phoneLink}
-                className="btn-secondary inline-flex min-h-[48px] items-center justify-center border-white bg-white px-6 py-3 !text-[#111827] shadow-sm hover:bg-[#f3f4f6] sm:min-w-[200px]"
+                className="btn-secondary inline-flex min-h-[48px] items-center justify-center border-white bg-white px-6 py-3 !text-[#111827] shadow-sm hover:!border-[#d4a017]/55 hover:!bg-[#fffef8] hover:!text-[#d4a017] sm:min-w-[200px]"
               >
                 Call {company.phone}
               </a>

@@ -102,7 +102,7 @@ function DesktopServicesDropdown({
             : "pointer-events-none invisible -translate-y-2 opacity-0"
         }`}
       >
-        <div className="w-[min(calc(100vw-2rem),36rem)] rounded-2xl border border-gray-200/90 bg-white p-4 shadow-[0_20px_50px_-12px_rgba(17,24,39,0.2)] ring-1 ring-black/[0.04]">
+        <div className="w-[min(calc(100vw-2rem),36rem)] rounded-2xl border border-gray-200/90 bg-white p-4 shadow-[0_20px_50px_-12px_rgba(17,24,39,0.2)] ring-1 ring-black/[0.04] transition-colors duration-200 [&:has(a:hover)]:border-[#d4a017]/35 [&:has(a:hover)]:ring-[#d4a017]/15">
           <Link
             href="/services"
             role="menuitem"
@@ -121,7 +121,7 @@ function DesktopServicesDropdown({
                 <span className="block text-sm font-semibold text-[#111827] transition-colors duration-200 group-hover/item:text-[#d4a017]">
                   {item.label}
                 </span>
-                <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-[#6b7280] transition-colors duration-200 group-hover/item:text-[#57534e]">
+                <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-[#6b7280] transition-colors duration-200 group-hover/item:text-[#d4a017]">
                   {item.description}
                 </span>
               </Link>
@@ -185,7 +185,10 @@ export function Header() {
       >
         <div className="container-main">
           <div className="flex min-h-[6.6rem] items-center justify-between gap-4 py-3 sm:min-h-[7.5rem] lg:min-h-[9.3rem] lg:gap-6 lg:py-4">
-            <Link href="/" className="group flex shrink-0 items-center">
+            <Link
+              href="/"
+              className="group flex shrink-0 items-center rounded-lg outline-none ring-offset-2 ring-offset-white transition-[box-shadow,opacity] duration-200 hover:opacity-100 hover:ring-2 hover:ring-[#d4a017]/45 focus-visible:ring-2 focus-visible:ring-[#d4a017]"
+            >
               <Image
                 src="/images/logo.png"
                 alt="All-Star Custom Construction LLC"
@@ -334,7 +337,7 @@ export function Header() {
               <div className="border-l-2 border-[#d4a017]/35 pl-3 pr-1 pt-1">
                 <Link
                   href="/services"
-                  className="mb-2 block rounded-md px-2 py-2 text-sm font-semibold text-[#d4a017] transition-colors duration-200 hover:bg-[#fffef5] hover:text-[#bf9014]"
+                  className="mb-2 block rounded-md px-2 py-2 text-sm font-semibold text-[#d4a017] transition-colors duration-200 hover:bg-[#fffef5] hover:text-[#d4a017]"
                   onClick={closeMobileMenu}
                 >
                   View all services →
