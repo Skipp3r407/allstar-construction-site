@@ -167,7 +167,7 @@ export function GalleryGrid({
                 className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition duration-200 ${
                   isActive
                     ? "bg-[#111827] text-white ring-2 ring-[#d4a017]/50"
-                    : "border border-gray-300 bg-white text-[#374151] hover:border-[#d4a017]/40 hover:bg-[#fafafa]"
+                    : "border border-gray-300 bg-white text-[#374151] transition-all duration-200 hover:border-[#d4a017]/50 hover:bg-[#fffef8] hover:text-[#d4a017]"
                 }`}
               >
                 {category}

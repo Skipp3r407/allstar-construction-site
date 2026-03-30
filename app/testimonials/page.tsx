@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaBanner } from "@/components/cta-banner";
-import { GoogleReviewsSection } from "@/components/google-reviews-section";
+import { GoogleReviewCta } from "@/components/google-review-cta";
 import { PageHero } from "@/components/page-hero";
 import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -10,7 +10,7 @@ import { testimonials } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Testimonials | All-Star Custom Construction LLC",
   description:
-    "Read local reviews from homeowners who chose All-Star Custom Construction LLC for patios, retaining walls, pergolas, concrete, and masonry projects.",
+    "See what Central Florida homeowners say about All-Star Custom Construction LLC — patios, retaining walls, pergolas, concrete, and masonry projects.",
 };
 
 export default function TestimonialsPage() {
@@ -20,8 +20,6 @@ export default function TestimonialsPage() {
         title="What Central Florida Homeowners Say"
         description="Real feedback from clients who trusted us with custom outdoor construction and masonry projects."
       />
-
-      <GoogleReviewsSection />
 
       <section className="section-pad">
         <div className="container-main">
@@ -41,6 +39,10 @@ export default function TestimonialsPage() {
           </StaggerReveal>
         </div>
       </section>
+
+      <Reveal direction="up">
+        <GoogleReviewCta />
+      </Reveal>
 
       <Reveal direction="up">
         <CtaBanner

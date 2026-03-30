@@ -42,6 +42,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 /* Logo splash (initial load overlay) */
@@ -312,7 +317,7 @@ a {
 
 /* Footer / inline links */
 .link-footer {
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 .link-footer:hover {
   color: var(--construction-gold);
@@ -322,7 +327,7 @@ a {
   position: relative;
   display: inline-flex;
   align-items: center;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease;
 }
 .link-inline::after {
   content: "";
@@ -332,7 +337,7 @@ a {
   width: 0;
   height: 1px;
   background-color: var(--construction-gold);
-  transition: width 0.3s ease;
+  transition: width 0.2s ease;
 }
 .link-inline:hover {
   color: var(--construction-gold);
@@ -388,15 +393,15 @@ a {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#bf9014] hover:shadow-lg hover:shadow-[#d4a017]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/15;
+    @apply inline-flex items-center justify-center rounded-md bg-[#d4a017] px-5 py-3 text-sm font-semibold text-[#111827] shadow-md transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-105 hover:bg-[#bf9014] hover:shadow-lg hover:shadow-[#d4a017]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/15 motion-reduce:transform-none motion-reduce:hover:scale-100;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#f3f4f6] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/10;
+    @apply inline-flex items-center justify-center rounded-md border border-[#1f2937] bg-white px-5 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#d4a017]/55 hover:bg-[#fffef8] hover:text-[#9a3412] hover:shadow-md hover:shadow-[#d4a017]/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937] focus-visible:ring-2 focus-visible:ring-[#111827]/10 motion-reduce:transform-none motion-reduce:hover:scale-100;
   }
 
   .card-premium {
-    @apply rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-900/10 hover:ring-1 hover:ring-[#d4a017]/20;
+    @apply rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[0_20px_40px_-14px_rgba(212,160,23,0.14)] hover:shadow-gray-900/10 hover:ring-1 hover:ring-[#d4a017]/25 motion-reduce:transform-none motion-reduce:hover:translate-y-0;
   }
 
   .heading-xl {

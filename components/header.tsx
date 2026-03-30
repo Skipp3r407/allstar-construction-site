@@ -71,8 +71,8 @@ function DesktopServicesDropdown({
         aria-expanded={servicesOpen}
         aria-haspopup="true"
         aria-controls={menuId}
-        className={`group relative flex items-center gap-1 whitespace-nowrap pb-1 text-sm transition duration-300 hover:text-[#d4a017] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4a017] ${
-          isServicesActive ? "font-semibold text-[#111827]" : "font-medium text-[#4b5563]"
+        className={`group relative flex items-center gap-1 whitespace-nowrap pb-1 text-sm transition-colors duration-200 hover:text-[#d4a017] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4a017] ${
+          isServicesActive ? "font-semibold text-[#d4a017]" : "font-medium text-[#1f2937]"
         }`}
         onFocus={openNow}
         onKeyDown={(e) => {
@@ -106,7 +106,7 @@ function DesktopServicesDropdown({
           <Link
             href="/services"
             role="menuitem"
-            className="mb-3 block rounded-lg border border-[#d4a017]/25 bg-[#fffef5] px-3 py-2.5 text-center text-sm font-semibold text-[#111827] transition hover:bg-[#fff8e8]"
+            className="mb-3 block rounded-lg border border-[#d4a017]/25 bg-[#fffef5] px-3 py-2.5 text-center text-sm font-semibold text-[#111827] transition-all duration-200 hover:bg-[#fff8e8] hover:text-[#d4a017]"
           >
             View all services
           </Link>
@@ -116,12 +116,12 @@ function DesktopServicesDropdown({
                 key={item.id}
                 href={`/services#${item.id}`}
                 role="menuitem"
-                className="group/item rounded-xl px-3 py-2.5 transition duration-150 hover:bg-[#fafafa] hover:ring-1 hover:ring-[#d4a017]/25"
+                className="group/item block rounded-xl p-3 transition-all duration-200 hover:translate-x-1 hover:bg-gray-50 hover:ring-1 hover:ring-[#d4a017]/30 motion-reduce:transition-colors motion-reduce:hover:translate-x-0"
               >
-                <span className="block text-sm font-semibold text-[#111827] group-hover/item:text-[#b45309]">
+                <span className="block text-sm font-semibold text-[#111827] transition-colors duration-200 group-hover/item:text-[#d4a017]">
                   {item.label}
                 </span>
-                <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-[#6b7280]">
+                <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-[#6b7280] transition-colors duration-200 group-hover/item:text-[#57534e]">
                   {item.description}
                 </span>
               </Link>
@@ -167,8 +167,8 @@ export function Header() {
   }, []);
 
   const navLinkClass = (href: string, isActive: boolean) =>
-    `group relative whitespace-nowrap pb-1 text-sm transition duration-300 hover:text-[#d4a017] ${
-      isActive ? "font-semibold text-[#111827]" : "font-medium text-[#4b5563]"
+    `group relative whitespace-nowrap pb-1 text-sm transition-colors duration-200 hover:text-[#d4a017] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4a017] ${
+      isActive ? "font-semibold text-[#d4a017]" : "font-medium text-[#1f2937]"
     }`;
 
   const beforeServices = navLinks.slice(0, 2);
@@ -237,7 +237,7 @@ export function Header() {
             <div className="hidden shrink-0 items-center gap-3 lg:flex">
               <a
                 href={company.phoneLink}
-                className="rounded-md border border-[#1f2937] px-3 py-2.5 text-sm font-semibold text-[#1f2937] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6] hover:shadow-sm"
+                className="rounded-md border border-[#1f2937] px-3 py-2.5 text-sm font-semibold text-[#1f2937] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#d4a017]/55 hover:bg-[#fffef8] hover:text-[#d4a017] hover:shadow-sm hover:shadow-[#d4a017]/10 motion-reduce:transform-none motion-reduce:hover:translate-y-0"
               >
                 Call {company.phone}
               </a>
@@ -248,7 +248,7 @@ export function Header() {
 
             <button
               type="button"
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2 text-[#111827] shadow-sm transition hover:border-[#d4a017]/40 hover:bg-[#fafafa] lg:hidden"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-gray-300 bg-white p-2 text-[#111827] shadow-sm transition-all duration-200 hover:border-[#d4a017]/50 hover:bg-[#fffef8] hover:text-[#d4a017] lg:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
               onClick={() =>
@@ -281,7 +281,7 @@ export function Header() {
           <span className="text-sm font-bold text-[#111827]">Menu</span>
           <button
             type="button"
-            className="rounded-lg p-2 text-[#6b7280] hover:bg-gray-100"
+            className="rounded-lg p-2 text-[#6b7280] transition-colors duration-200 hover:bg-[#fffef8] hover:text-[#d4a017]"
             onClick={closeMobileMenu}
             aria-label="Close menu"
           >
@@ -296,10 +296,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`mb-1 block rounded-lg px-3 py-3 text-sm font-semibold transition-colors ${
+                className={`mb-1 block rounded-lg px-3 py-3 text-sm font-semibold transition-colors duration-200 ${
                   isActive
-                    ? "bg-[#111827]/6 text-[#111827] ring-1 ring-[#d4a017]/40"
-                    : "text-[#1f2937] hover:bg-gray-50"
+                    ? "bg-[#111827]/6 text-[#d4a017] ring-1 ring-[#d4a017]/40"
+                    : "text-[#1f2937] hover:bg-[#fffef8] hover:text-[#d4a017]"
                 }`}
                 onClick={closeMobileMenu}
               >
@@ -312,10 +312,10 @@ export function Header() {
             <button
               type="button"
               aria-expanded={mobileServicesOpen}
-              className={`flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-semibold transition-colors ${
+              className={`flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-semibold transition-colors duration-200 ${
                 pathname.startsWith("/services")
-                  ? "bg-[#111827]/6 text-[#111827] ring-1 ring-[#d4a017]/40"
-                  : "text-[#1f2937] hover:bg-gray-50"
+                  ? "bg-[#111827]/6 text-[#d4a017] ring-1 ring-[#d4a017]/40"
+                  : "text-[#1f2937] hover:bg-[#fffef8] hover:text-[#d4a017]"
               }`}
               onClick={() => setMobileServicesOpen((v) => !v)}
             >
@@ -334,7 +334,7 @@ export function Header() {
               <div className="border-l-2 border-[#d4a017]/35 pl-3 pr-1 pt-1">
                 <Link
                   href="/services"
-                  className="mb-2 block rounded-md px-2 py-2 text-sm font-semibold text-[#b45309] hover:bg-[#fffef5]"
+                  className="mb-2 block rounded-md px-2 py-2 text-sm font-semibold text-[#d4a017] transition-colors duration-200 hover:bg-[#fffef5] hover:text-[#bf9014]"
                   onClick={closeMobileMenu}
                 >
                   View all services →
@@ -344,7 +344,7 @@ export function Header() {
                     <li key={item.id}>
                       <Link
                         href={`/services#${item.id}`}
-                        className="block rounded-md px-2 py-2.5 text-sm text-[#374151] transition hover:bg-gray-50 hover:text-[#111827]"
+                        className="block rounded-md px-2 py-2.5 text-sm text-[#374151] transition-all duration-200 hover:translate-x-1 hover:bg-[#fafafa] hover:text-[#d4a017] motion-reduce:transition-colors motion-reduce:hover:translate-x-0"
                         onClick={closeMobileMenu}
                       >
                         {item.label}
@@ -363,10 +363,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`mb-1 block rounded-lg px-3 py-3 text-sm font-semibold transition-colors ${
+                className={`mb-1 block rounded-lg px-3 py-3 text-sm font-semibold transition-colors duration-200 ${
                   isActive
-                    ? "bg-[#111827]/6 text-[#111827] ring-1 ring-[#d4a017]/40"
-                    : "text-[#1f2937] hover:bg-gray-50"
+                    ? "bg-[#111827]/6 text-[#d4a017] ring-1 ring-[#d4a017]/40"
+                    : "text-[#1f2937] hover:bg-[#fffef8] hover:text-[#d4a017]"
                 }`}
                 onClick={closeMobileMenu}
               >

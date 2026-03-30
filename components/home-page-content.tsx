@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CtaBanner } from "@/components/cta-banner";
-import { GoogleReviewTeaser } from "@/components/google-review-teaser";
+import { GoogleReviewCta } from "@/components/google-review-cta";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -54,7 +54,7 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
               </Link>
               <a
                 href={company.phoneLink}
-                className="btn-secondary min-h-[48px] justify-center border-white bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/15 hover:ring-white/40"
+                className="btn-secondary min-h-[48px] justify-center !border-white/80 bg-white/10 !text-white ring-1 ring-white/25 transition-all duration-200 hover:!border-[#d4a017]/60 hover:!bg-[#d4a017]/15 hover:!text-[#d4a017] hover:ring-[#d4a017]/40"
               >
                 Call Now
               </a>
@@ -202,11 +202,12 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
               Read More Testimonials
             </Link>
           </Reveal>
-          <Reveal direction="up">
-            <GoogleReviewTeaser />
-          </Reveal>
         </div>
       </section>
+
+      <Reveal direction="up">
+        <GoogleReviewCta />
+      </Reveal>
 
       <section className="bg-white section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2">

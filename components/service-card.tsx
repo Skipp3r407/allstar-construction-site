@@ -12,7 +12,9 @@ export function ServiceCard({ title, summary }: ServiceCardProps) {
       <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#1f2937] to-[#111827] text-[#d4a017] shadow-inner transition duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-[#d4a017]/15">
         <ServiceIcon title={title} className="h-6 w-6" />
       </div>
-      <h3 className="text-xl font-bold text-[#111827]">{title}</h3>
+      <h3 className="text-xl font-bold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
+        {title}
+      </h3>
       <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">{summary}</p>
       <Link
         href="/contact"
