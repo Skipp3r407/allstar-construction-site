@@ -204,6 +204,19 @@ a {
   }
 }
 
+@keyframes galleryFilterFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-gallery-filter {
+  animation: galleryFilterFade 0.22s ease-out forwards;
+}
+
 .animate-fade-up {
   animation: fadeInUpModal 0.35s ease-out forwards;
 }
@@ -275,6 +288,7 @@ a {
   }
 
   .animate-fade-up,
+  .animate-gallery-filter,
   .animate-float-slow,
   .animate-pulse-soft,
   .scroll-dot {

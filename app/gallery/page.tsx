@@ -4,113 +4,31 @@ import { GalleryGrid } from "@/components/gallery-grid";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { GALLERY_FILTER_CATEGORIES, galleryItems } from "@/lib/gallery-data";
 
 export const metadata: Metadata = {
-  title: "Gallery | All-Star Custom Construction LLC",
+  title: "Project Gallery | All-Star Custom Construction LLC | Central Florida",
   description:
-    "View project examples from All-Star Custom Construction LLC, including pavers, pergolas, fire pits, masonry, decks, fences, slabs, and retaining walls.",
+    "Browse real outdoor construction projects across Central Florida: concrete, pavers, masonry, pergolas, fire pits, decks, fences, and retaining walls by All-Star Custom Construction LLC.",
 };
 
-const galleryItems = [
-  {
-    title: "Custom Paver Patio Installation",
-    category: "Pavers",
-    caption: "Custom Paver Patio Installation",
-  },
-  {
-    title: "Paver Walkway and Patio Upgrade",
-    category: "Pavers",
-    caption: "Paver Walkway and Patio Upgrade",
-  },
-  {
-    title: "Concrete Slab for Outdoor Expansion",
-    category: "Concrete",
-    caption: "Concrete Slab for Outdoor Expansion",
-  },
-  {
-    title: "Decorative Masonry Feature Installation",
-    category: "Masonry",
-    caption: "Decorative Masonry Feature Installation",
-  },
-  {
-    title: "Backyard Fire Pit Seating Area",
-    category: "Fire Pits",
-    caption: "Backyard Fire Pit Seating Area",
-  },
-  {
-    title: "Durable Retaining Wall Project",
-    category: "Retaining Walls",
-    caption: "Durable Retaining Wall Project",
-  },
-  {
-    title: "Wood Fence Installation for Privacy",
-    category: "Fences",
-    caption: "Wood Fence Installation for Privacy",
-  },
-  {
-    title: "Concrete Footing Prep for Structural Build",
-    category: "Concrete",
-    caption: "Concrete Footing Prep for Structural Build",
-  },
-  {
-    title: "New Sidewalk Installation",
-    category: "Sidewalks",
-    caption: "New Sidewalk Installation",
-  },
-  {
-    title: "Custom Deck Build for Outdoor Living",
-    category: "Decks",
-    caption: "Custom Deck Build for Outdoor Living",
-  },
-  {
-    title: "Paver Driveway Border Detail",
-    category: "Pavers",
-    caption: "Paver Driveway Border Detail",
-  },
-  {
-    title: "Stone Masonry Enhancement Project",
-    category: "Masonry",
-    caption: "Stone Masonry Enhancement Project",
-  },
-  {
-    title: "Backyard Pergola Build",
-    category: "Pergolas",
-    caption: "Custom Backyard Pergola in Central Florida",
-  },
-  {
-    title: "Concrete Sidewalk Project",
-    category: "Sidewalks",
-    caption: "Concrete Sidewalk Project",
-  },
-];
-
-const categories = [
-  "Concrete",
-  "Sidewalks",
-  "Pavers",
-  "Masonry",
-  "Pergolas",
-  "Fire Pits",
-  "Decks",
-  "Fences",
-  "Retaining Walls",
-];
+const categories = [...GALLERY_FILTER_CATEGORIES];
 
 export default function GalleryPage() {
   return (
     <>
       <PageHero
-        title="See What We Have Built Across Central Florida"
-        description="Explore project examples that highlight our craftsmanship, custom planning, and quality installation standards."
+        title="See Our Work Across Central Florida"
+        description="From concrete and pavers to pergolas, decks, and fire pits, explore the craftsmanship behind our outdoor construction projects for Orlando-area homeowners and surrounding communities."
       />
 
       <section className="section-pad">
         <div className="container-main">
           <Reveal direction="up">
             <SectionHeading
-              eyebrow="Our Work"
-              title="Our Project Gallery"
-              description="Filter by project type to preview the concrete, masonry, and outdoor living work we complete for local homeowners."
+              eyebrow="Built to Last"
+              title="Recent Projects & Craftsmanship"
+              description="Filter by service to view the hardscape, structural, and outdoor living work we deliver throughout Central Florida — with the same attention to detail on every job site."
             />
           </Reveal>
           <div className="mt-8">
@@ -127,8 +45,8 @@ export default function GalleryPage() {
 
       <Reveal direction="up">
         <CtaBanner
-          title="Ready to Start Your Outdoor Project?"
-          subtitle="Request a free quote or call now to discuss your concrete, masonry, pergola, deck, fence, or retaining wall project."
+          title="Ready to Start Your Project?"
+          subtitle="Request a free quote or call now to plan your concrete, paver, masonry, pergola, deck, fence, or retaining wall project in Central Florida."
         />
       </Reveal>
     </>

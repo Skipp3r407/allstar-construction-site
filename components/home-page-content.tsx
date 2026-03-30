@@ -6,14 +6,15 @@ import { Reveal, StaggerReveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
 import { TestimonialCard } from "@/components/testimonial-card";
+import type { GalleryItem } from "@/lib/gallery-data";
 import { company, coreServices, serviceAreas, testimonials } from "@/lib/site-data";
 
 type HomePageContentProps = {
   trustPoints: string[];
-  featuredProjects: Array<{ title: string; category: string; caption: string }>;
+  featuredGallery: GalleryItem[];
 };
 
-export function HomePageContent({ trustPoints, featuredProjects }: HomePageContentProps) {
+export function HomePageContent({ trustPoints, featuredGallery }: HomePageContentProps) {
   return (
     <>
       <section className="relative overflow-hidden bg-[#111827] py-20 text-white sm:py-24">
@@ -153,13 +154,13 @@ export function HomePageContent({ trustPoints, featuredProjects }: HomePageConte
         <div className="container-main">
           <Reveal direction="up">
             <SectionHeading
-              eyebrow="Featured Projects"
+              eyebrow="Our Work"
               title="Craftsmanship You Can See"
-              description="See the quality of our work across Orlando and surrounding Central Florida communities."
+              description="Real projects across Orlando and Central Florida — pavers, pergolas, concrete, fire pits, retaining walls, and more."
             />
           </Reveal>
           <Reveal direction="up-zoom" className="mt-10">
-            <GalleryGrid items={featuredProjects} />
+            <GalleryGrid items={featuredGallery} enableLightbox />
           </Reveal>
           <Reveal direction="up" className="mt-8 inline-block">
             <Link href="/gallery" className="btn-secondary">
