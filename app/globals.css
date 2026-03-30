@@ -56,13 +56,107 @@ a {
   }
 }
 
+@keyframes splashBlobDrift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, -2%) scale(1.03);
+  }
+}
+
+@keyframes splashRingGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.85;
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes splashProgressFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .logo-splash-img {
-  animation: logoSplashIn 0.55s ease-out forwards;
+  animation: logoSplashIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.splash-blob-a {
+  animation: splashBlobDrift 12s ease-in-out infinite;
+}
+
+.splash-blob-b {
+  animation: splashBlobDrift 14s ease-in-out infinite reverse;
+}
+
+.splash-logo-frame {
+  animation: splashRingGlow 3.5s ease-in-out infinite;
+}
+
+.splash-progress-bar {
+  transform-origin: left center;
+  animation: splashProgressFill var(--splash-ms, 2400ms) linear forwards;
+}
+
+@keyframes splashDotWave {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
+.splash-dot {
+  display: inline-block;
+  animation: splashDotWave 1.1s ease-in-out infinite;
+}
+
+.splash-dot:nth-child(1) {
+  animation-delay: 0ms;
+}
+.splash-dot:nth-child(2) {
+  animation-delay: 150ms;
+}
+.splash-dot:nth-child(3) {
+  animation-delay: 300ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .logo-splash-img {
     animation: none;
+  }
+
+  .splash-blob-a,
+  .splash-blob-b {
+    animation: none;
+  }
+
+  .splash-logo-frame {
+    animation: none;
+  }
+
+  .splash-progress-bar {
+    animation: none;
+  }
+
+  .splash-dot {
+    animation: none;
+    opacity: 0.6;
   }
 }
 
