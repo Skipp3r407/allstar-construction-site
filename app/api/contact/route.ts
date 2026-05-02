@@ -7,7 +7,11 @@ const MAX_LEN = {
   phone: 40,
   service: 120,
   message: 8000,
+  source: 48,
 };
+
+/** Optional attribution for analytics / prioritization (e.g. chat assistant). */
+const ALLOWED_SOURCES = new Set(["contact", "chatbot-chat", "chatbot-form"]);
 
 const DEFAULT_INQUIRY_TO = "allstarconstruction85@gmail.com";
 
@@ -86,6 +90,12 @@ export async function POST(request: Request) {
         ? raw.details.trim()
         : "";
 
+  const rawSource = typeof raw.source === "string" ? raw.source.trim() : "";
+  const source =
+    rawSource.length > 0 && ALLOWED_SOURCES.has(rawSource) && rawSource.length <= MAX_LEN.source
+      ? rawSource
+      : "contact";
+
   if (!isNonEmptyString(name) || name.length > MAX_LEN.name) {
     return Response.json({ ok: false, error: "Please enter your name." }, { status: 400 });
   }
@@ -111,9 +121,19 @@ export async function POST(request: Request) {
     phone: escapeHtml(phone),
     service: escapeHtml(service),
     message: escapeHtml(message).replace(/\n/g, "<br/>"),
+    sourceLabel:
+      source === "chatbot-chat"
+        ? "Site chat (conversation)"
+        : source === "chatbot-form"
+          ? "Site chat (quick form)"
+          : "Contact page",
   };
 
-  const subject = `Website inquiry — ${name.replace(/\s+/g, " ").slice(0, 120)} (${service.slice(0, 80)})`;
+  const subjectPrefix =
+    source === "chatbot-chat" || source === "chatbot-form"
+      ? "Website inquiry — chat assistant — "
+      : "Website inquiry — ";
+  const subject = `${subjectPrefix}${name.replace(/\s+/g, " ").slice(0, 120)} (${service.slice(0, 80)})`;
 
   const html = `
 <!DOCTYPE html>
@@ -125,6 +145,7 @@ export async function POST(request: Request) {
     <tr><td style="padding: 8px 0; font-weight: 600;">Email</td><td style="padding: 8px 0;"><a href="mailto:${safe.email}">${safe.email}</a></td></tr>
     <tr><td style="padding: 8px 0; font-weight: 600;">Phone</td><td style="padding: 8px 0;">${safe.phone}</td></tr>
     <tr><td style="padding: 8px 0; font-weight: 600;">Service</td><td style="padding: 8px 0;">${safe.service}</td></tr>
+    <tr><td style="padding: 8px 0; font-weight: 600;">Source</td><td style="padding: 8px 0;">${safe.sourceLabel}</td></tr>
   </table>
   <h3 style="margin: 24px 0 8px; font-size: 15px;">Message</h3>
   <div style="padding: 12px; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;">${safe.message}</div>

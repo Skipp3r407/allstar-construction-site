@@ -84,6 +84,7 @@ export function Chatbot() {
   const [leadMode, setLeadMode] = useState(false);
   const leadRef = useRef<LeadSession | null>(null);
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const [leadSending, setLeadSending] = useState(false);
   const [welcomed, setWelcomed] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -124,7 +125,7 @@ export function Chatbot() {
   }, []);
 
   const finishLead = useCallback(
-    (data: Partial<Record<LeadField, string>>, source: LeadPayload["source"]) => {
+    async (data: Partial<Record<LeadField, string>>, source: LeadPayload["source"]) => {
       const payload: LeadPayload = {
         name: data.name ?? "",
         phone: data.phone ?? "",
@@ -143,10 +144,63 @@ export function Chatbot() {
       leadRef.current = null;
       setLeadMode(false);
       setQuickItems(MAIN_QUICK_REPLIES);
-      pushBot(
-        `Thanks — I've captured your project details. The ${CHATBOT_COMPANY.name} team can review your request and follow up about your estimate. You can also call ${CHATBOT_COMPANY.phoneDisplay} to speak with someone directly. Open the Contact page if you'd like to add photos — your info may pre-fill when available.`,
-        500
-      );
+
+      const city = payload.city.trim();
+      const det = payload.details.trim();
+      let message = [city ? `City: ${city}` : null, det || null].filter(Boolean).join("\n\n");
+      if (!message) message = "Submitted via site chat assistant (no additional notes).";
+
+      setLeadSending(true);
+      setTyping(true);
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone,
+            service: payload.service,
+            message,
+            source,
+          }),
+        });
+        let json: { ok?: boolean; error?: string } = {};
+        try {
+          json = (await res.json()) as { ok?: boolean; error?: string };
+        } catch {
+          json = {};
+        }
+        setLeadSending(false);
+        setTyping(false);
+
+        if (res.ok && json.ok) {
+          try {
+            sessionStorage.removeItem(LEAD_STORAGE_KEY);
+          } catch {
+            /* ignore */
+          }
+          pushBot(
+            `Thanks — your request was emailed to the ${CHATBOT_COMPANY.name} team. We'll follow up about your estimate. You can also call ${CHATBOT_COMPANY.phoneDisplay} anytime.`,
+            400
+          );
+        } else {
+          const hint = json.error?.trim().slice(0, 160);
+          pushBot(
+            hint
+              ? `We couldn't send email automatically (${hint}). Your details are saved — open the Contact page to finish sending, or call ${CHATBOT_COMPANY.phoneDisplay}.`
+              : `We couldn't send email automatically. Your details are saved — open the Contact page to finish sending, or call ${CHATBOT_COMPANY.phoneDisplay}.`,
+            400
+          );
+        }
+      } catch {
+        setLeadSending(false);
+        setTyping(false);
+        pushBot(
+          `We couldn't reach the server. Your details are saved — use the Contact page to send your message, or call ${CHATBOT_COMPANY.phoneDisplay}.`,
+          400
+        );
+      }
     },
     [pushBot]
   );
@@ -180,7 +234,7 @@ export function Chatbot() {
       const nextStep = session.step + 1;
 
       if (nextStep >= LEAD_LABELS.length) {
-        finishLead(data, "chatbot-chat");
+        void finishLead(data, "chatbot-chat");
         return;
       }
 
@@ -233,14 +287,14 @@ export function Chatbot() {
 
   const handleSend = () => {
     const t = input.trim();
-    if (!t || typing) return;
+    if (!t || typing || leadSending) return;
     pushUser(t);
     setInput("");
     answerUserMessage(t);
   };
 
   const handleQuickSelect = (id: string) => {
-    if (typing) return;
+    if (typing || leadSending) return;
 
     if (id.startsWith("pick-service-")) {
       const svc = id.replace("pick-service-", "");
@@ -334,7 +388,7 @@ export function Chatbot() {
   const leadFormDone = (payload: LeadPayload) => {
     setShowLeadForm(false);
     setMessages((m) => [...m, { id: uid(), role: "user", text: "[Submitted quick form]" }]);
-    finishLead(
+    void finishLead(
       {
         name: payload.name,
         phone: payload.phone,
@@ -431,7 +485,7 @@ export function Chatbot() {
           ) : null}
         </div>
 
-        <QuickReplies items={quickItems} onSelect={handleQuickSelect} disabled={typing} />
+        <QuickReplies items={quickItems} onSelect={handleQuickSelect} disabled={typing || leadSending} />
         {leadMode && quickItems.length > 0 ? (
           <p className="border-t border-gray-100 px-3 py-1 text-[10px] text-[#6b7280]">
             Or type your answer in the box below.
@@ -449,14 +503,14 @@ export function Chatbot() {
                 if (e.key === "Enter") handleSend();
               }}
               placeholder={leadMode ? "Type your answer…" : "Ask about your project…"}
-              disabled={typing || showLeadForm}
+              disabled={typing || leadSending || showLeadForm}
               className="min-w-0 flex-1 rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none transition duration-200 hover:border-[#d4a017]/45 focus:border-[#d4a017] focus:ring-2 focus:ring-[#d4a017]/25 disabled:bg-gray-100"
               aria-label="Message"
             />
             <button
               type="button"
               onClick={handleSend}
-              disabled={typing || !input.trim() || showLeadForm}
+              disabled={typing || leadSending || !input.trim() || showLeadForm}
               className="shrink-0 rounded-xl bg-[#d4a017] px-3 py-2 text-sm font-semibold text-[#111827] shadow-sm transition hover:bg-[#bf9014] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111827] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Send
