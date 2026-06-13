@@ -94,24 +94,40 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800">
-        <div className="container-main flex flex-col gap-2 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-center sm:text-left">
-            <p>
+        <div className="container-main py-6">
+          <div className="flex flex-col items-center text-center">
+            <p className="text-sm text-gray-400">Website Designed By</p>
+            <a
+              href="https://www.elevatedigitalstudios.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-2.5 rounded-md transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017]"
+            >
+              <Image
+                src="/images/elevate-digital-studios.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 shrink-0 rounded-full bg-white object-contain p-0.5"
+              />
+              <span className="text-base font-bold text-white">Elevate Digital Studios</span>
+            </a>
+            <a
+              href="https://www.elevatedigitalstudios.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 text-sm text-gray-400 transition-colors hover:text-gray-200"
+            >
+              www.elevatedigitalstudios.net
+            </a>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-2 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-center sm:text-left">
               © {year} {company.name}. All rights reserved.
             </p>
-            <p className="mt-2 text-sm text-gray-400">
-              Website Design by{" "}
-              <a
-                href="https://elevatedigitalstudios.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-footer font-medium"
-              >
-                Elevate Digital Studio.
-              </a>
-            </p>
+            <p className="text-center sm:text-right">{company.trustLine}</p>
           </div>
-          <p>{company.trustLine}</p>
         </div>
       </div>
     </footer>
