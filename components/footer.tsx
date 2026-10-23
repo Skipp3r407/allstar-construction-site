@@ -104,13 +104,12 @@ export function Footer() {
               className="mt-2 inline-flex items-center gap-2.5 rounded-md transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a017]"
             >
               <Image
-                src="/images/elevate-digital-studios.png"
+                src="/images/elevate-logo-wide.png"
                 alt="Elevate Digital Studios"
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 rounded-full bg-white object-contain p-0.5"
+                width={180}
+                height={64}
+                className="h-auto w-[150px] rounded-md object-contain"
               />
-              <span className="text-base font-bold text-white">Elevate Digital Studios</span>
             </a>
             <a
               href="https://www.elevatedigitalstudios.net"
