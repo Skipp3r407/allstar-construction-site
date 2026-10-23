@@ -68,7 +68,7 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
                 <p className="text-sm font-semibold leading-snug">Clear quotes &amp; steady communication</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-                <p className="text-sm font-semibold leading-snug">See real work in our project gallery</p>
+                <p className="text-sm font-semibold leading-snug">See what we build in our project gallery</p>
               </div>
             </div>
 
@@ -167,7 +167,7 @@ export function HomePageContent({ trustPoints, featuredGallery }: HomePageConten
             <SectionHeading
               eyebrow="Our Work"
               title="Craftsmanship You Can See"
-              description="Real projects across Orlando and Central Florida — pavers, pergolas, concrete, fire pits, retaining walls, and more."
+              description="Pavers, pergolas, concrete, fire pits, retaining walls, and more across Orlando and Central Florida."
             />
           </Reveal>
           <Reveal direction="up-zoom" className="mt-10">

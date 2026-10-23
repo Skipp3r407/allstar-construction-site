@@ -61,6 +61,11 @@ function GalleryCard({
           <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#111827] shadow-sm">
             {item.category}
           </span>
+          {item.example ? (
+            <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-sm">
+              Example photo
+            </span>
+          ) : null}
         </div>
         <div className="p-4">
           <h3 className="text-base font-semibold text-[#111827] transition-colors duration-200 group-hover:text-[#d4a017]">
