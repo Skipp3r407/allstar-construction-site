@@ -3,9 +3,10 @@ import { HomePageContent } from "@/components/home-page-content";
 import { getFeaturedGalleryItems } from "@/lib/gallery-data";
 
 export const metadata: Metadata = {
-  title: "Central Florida Outdoor Construction & Free Quotes",
+  alternates: { canonical: "/" },
+  title: { absolute: "All-Star Custom Construction | Central Florida Pavers & Concrete" },
   description:
-    "26+ years experience, 12+ years serving Central Florida. Pavers, pergolas, concrete, masonry, fire pits, decks, fences, retaining walls — request a free quote from All-Star Custom Construction LLC.",
+    "Pavers, pergolas, concrete, masonry, fire pits, decks, fences and retaining walls in Orlando and Central Florida. 26+ years of experience. Free quotes.",
 };
 
 const trustPoints = [

@@ -6,7 +6,8 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-  title: "FAQ | All-Star Custom Construction LLC",
+  alternates: { canonical: "/faq" },
+  title: "FAQ: Pavers, Concrete & Outdoor Projects",
   description:
     "Find answers to common questions about service areas, estimates, timelines, custom outdoor projects, and materials from All-Star Custom Construction LLC.",
 };
@@ -73,6 +74,16 @@ export default function FaqPage() {
           </Reveal>
           <Reveal direction="up" className="mt-8 max-w-4xl">
             <FaqAccordion items={faqItems} />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+                }),
+              }}
+            />
           </Reveal>
         </div>
       </section>

@@ -5,7 +5,8 @@ import { Reveal, StaggerReveal } from "@/components/reveal";
 import { ServiceDetailCard } from "@/components/service-detail-card";
 
 export const metadata: Metadata = {
-  title: "Services | All-Star Custom Construction LLC",
+  alternates: { canonical: "/services" },
+  title: "Pavers, Concrete, Pergolas & Outdoor Services",
   description:
     "Explore concrete, masonry, paver, pergola, deck, fence, fire pit, and retaining wall services from All-Star Custom Construction LLC in Central Florida.",
 };

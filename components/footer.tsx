@@ -105,7 +105,7 @@ export function Footer() {
             >
               <Image
                 src="/images/elevate-digital-studios.png"
-                alt=""
+                alt="Elevate Digital Studios"
                 width={36}
                 height={36}
                 className="h-9 w-9 shrink-0 rounded-full bg-white object-contain p-0.5"

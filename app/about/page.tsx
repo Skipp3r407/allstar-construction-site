@@ -6,7 +6,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { company } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "About | All-Star Custom Construction LLC",
+  alternates: { canonical: "/about" },
+  title: "About Our Central Florida Construction Team",
   description:
     "Learn how All-Star Custom Construction LLC is built on 26+ years of industry experience and proudly established for 12 years serving homeowners across Central Florida.",
 };

@@ -6,7 +6,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Header } from "@/components/header";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/footer";
-import { company } from "@/lib/site-data";
+import { company, coreServices, serviceAreas } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/site-url";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,14 +15,13 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.allstarcustomconstruction.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "All-Star Custom Construction LLC | Outdoor Construction in Central Florida",
-    template: "%s | All-Star Custom Construction LLC",
+    default: "All-Star Custom Construction | Central Florida Pavers & Concrete",
+    template: "%s | All-Star Construction",
   },
   description:
-    "Central Florida outdoor construction: 26+ years experience, 12+ years local service. Pavers, pergolas, concrete, masonry, fire pits, decks, fences, retaining walls. Request a free quote.",
+    "Pavers, concrete, pergolas, masonry, fire pits, decks, fences and retaining walls across Central Florida. 26+ years of experience. Free quotes.",
   keywords: [
     "Central Florida contractor",
     "Orlando pavers",
@@ -35,14 +35,13 @@ export const metadata: Metadata = {
     shortcut: "/images/favicon.png",
     apple: "/images/favicon.png",
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "All-Star Custom Construction LLC",
-    title: "All-Star Custom Construction LLC | Central Florida",
+    title: "All-Star Custom Construction | Central Florida",
+    url: SITE_URL,
+    images: ["/opengraph-image"],
     description:
       "Premium outdoor construction for homeowners: pavers, pergolas, concrete, masonry, and more.",
   },
@@ -70,19 +69,28 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+              "@id": `${SITE_URL}/#business`,
               name: company.name,
-              telephone: company.phone,
+              telephone: "+1-321-315-6014",
               email: company.email,
-              areaServed: "Central Florida",
+              image: `${SITE_URL}/images/logo.png`,
+              logo: `${SITE_URL}/images/logo.png`,
+              areaServed: serviceAreas.map((city) => ({ "@type": "City", name: `${city}, FL` })),
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Outdoor construction services",
+                itemListElement: coreServices.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title, description: s.summary } })),
+              },
               description:
                 "Custom concrete, masonry, and outdoor living construction for Central Florida homeowners, backed by 26+ years of hands-on experience and 12 years in business.",
               address: {
                 "@type": "PostalAddress",
+                addressLocality: "Orlando",
                 addressRegion: "FL",
                 addressCountry: "US",
               },
-              url: "https://www.allstarcustomconstruction.com",
+              url: SITE_URL,
             }),
           }}
         />

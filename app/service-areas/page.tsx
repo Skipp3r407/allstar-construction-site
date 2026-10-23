@@ -6,7 +6,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { serviceAreas } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Service Areas | All-Star Custom Construction LLC",
+  alternates: { canonical: "/service-areas" },
+  title: "Service Areas: Orlando, Kissimmee, Sanford & More",
   description:
     "All-Star Custom Construction LLC serves homeowners across Central Florida, including Orlando, Kissimmee, Sanford, Winter Park, and surrounding communities.",
 };

@@ -7,9 +7,10 @@ import { SectionHeading } from "@/components/section-heading";
 import { GALLERY_FILTER_CATEGORIES, galleryItems } from "@/lib/gallery-data";
 
 export const metadata: Metadata = {
-  title: "Project Gallery | All-Star Custom Construction LLC | Central Florida",
+  alternates: { canonical: "/gallery" },
+  title: "Project Gallery: Pavers, Pergolas & Concrete",
   description:
-    "Browse real outdoor construction projects across Central Florida: concrete, pavers, masonry, pergolas, fire pits, decks, fences, and retaining walls by All-Star Custom Construction LLC.",
+    "Real Central Florida projects by All-Star Custom Construction: pavers, concrete, masonry, pergolas, fire pits, decks, fences and retaining walls.",
 };
 
 const categories = [...GALLERY_FILTER_CATEGORIES];

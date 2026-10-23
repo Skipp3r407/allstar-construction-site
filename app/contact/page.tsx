@@ -6,7 +6,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { company } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Contact | All-Star Custom Construction LLC",
+  alternates: { canonical: "/contact" },
+  title: "Get a Free Outdoor Construction Quote",
   description:
     "Contact All-Star Custom Construction LLC for custom concrete, masonry, and outdoor living quote requests across Central Florida.",
 };

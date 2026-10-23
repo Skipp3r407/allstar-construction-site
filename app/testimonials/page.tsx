@@ -8,7 +8,8 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import { testimonials } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Testimonials | All-Star Custom Construction LLC",
+  alternates: { canonical: "/testimonials" },
+  title: "Customer Reviews & Testimonials",
   description:
     "See what Central Florida homeowners say about All-Star Custom Construction LLC — patios, retaining walls, pergolas, concrete, and masonry projects.",
 };
