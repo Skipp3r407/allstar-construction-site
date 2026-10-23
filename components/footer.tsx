@@ -106,9 +106,9 @@ export function Footer() {
               <Image
                 src="/images/elevate-logo-wide.png"
                 alt="Elevate Digital Studios"
-                width={180}
-                height={64}
-                className="h-auto w-[150px] rounded-md object-contain"
+                width={480}
+                height={152}
+                className="h-auto w-[150px] object-contain"
               />
             </a>
             <a
