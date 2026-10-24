@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { Chatbot } from "@/components/Chatbot";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Header } from "@/components/header";
-import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/footer";
 import { company, coreServices, serviceAreas } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/site-url";
@@ -59,7 +58,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <LoadingScreen />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
